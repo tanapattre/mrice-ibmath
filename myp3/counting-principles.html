@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dice Strategy — Counting Your Chances</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>
+.diagram-container { display: flex; justify-content: center; margin: 1.5rem 0; }
+.dice-svg, .tree-svg { max-width: 100%; height: auto; }
+.game-tip { background: #fff8e7; border-left: 4px solid #c9a227; padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 4px 4px 0; }
+.game-tip strong { color: #003366; }
+.dice-table { width: auto; margin: 1rem auto; border-collapse: collapse; font-family: system-ui, sans-serif; font-size: 14px; }
+.dice-table th, .dice-table td { border: 1px solid #ccc; padding: 6px 14px; text-align: center; }
+.dice-table th { background: #f0f0f0; }
+.dice-table .highlight { background: #fff3cd; font-weight: 600; }
+</style>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    macros: { P: "\\mathbb{P}", C: "{\\binom{#1}{#2}}" }
+  },
+  startup: { pageReady: () => MathJax.startup.defaultPageReady() }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-container">
+    <a href="../../index.html" class="site-title">IB Math <span>Resources</span></a>
+    <ul class="nav-links">
+      <li><a href="../../myp3/index.html" class="active">MYP3</a></li>
+      <li><a href="../../dp-ai/index.html">DP AI SL</a></li>
+      <li><a href="../../topics/index.html">Topics</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+<div class="toggle-bar no-print">
+  <button class="toggle-btn active" onclick="showView('student')">Student View</button>
+  <button class="toggle-btn" onclick="showView('teacher')">Teacher View</button>
+</div>
+
+<div id="student-view" class="worksheet-body">
+
+<h1>🎲 Dice Strategy — Counting Your Chances</h1>
+<p class="meta">MYP3 Enrichment · Counting Principles · For students who finish class work early</p>
+
+<div class="game-tip"
+<strong>Game Context:</strong> In Monopoly, you roll two dice and move that many spaces. Some properties get landed on <em>way more often</em> than others. Why? Let's use counting to find out.
+</div>
+
+<div class="recall-box">
+<h3>🔑 Counting Principles</h3>
+<ul>
+  <li><strong>Fundamental Counting Principle:</strong> If event A has $m$ outcomes and event B has $n$ outcomes, then A <strong>and</strong> B together have $m \times n$ outcomes.</li>
+  <li><strong>Factorial:</strong> $n! = n \times (n-1) \times (n-2) \times \ldots \times 2 \times 1$</li>
+  <li><strong>Permutations</strong> (order matters): $\P(n,r) = \frac{n!}{(n-r)!}$</li>
+  <li><strong>Combinations</strong> (order doesn't matter): $\C{n}{r} = \frac{n!}{r!(n-r)!}$</li>
+</ul>
+</div>
+
+<div class="example-box">
+<h3>📘 Worked Example — Two Dice</h3>
+<p>You roll two standard six-sided dice. How many ways can you get a sum of 7?</p>
+
+<p><span class="step-label">Step 1</span> — Total possible outcomes:</p>
+<p style="text-align:center;">$6 \times 6 = 36$ total outcomes</p>
+
+<p><span class="step-label">Step 2</span> — List all ways to make 7:</p>
+<table class="dice-table">
+  <tr><th>Die 1</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+  <tr><th>Die 2</th><td class="highlight">6</td><td class="highlight">5</td><td class="highlight">4</td><td class="highlight">3</td><td class="highlight">2</td><td class="highlight">1</td></tr>
+</table>
+
+<p style="text-align:center;">6 ways to roll a 7</p>
+
+<p><span class="step-label">Step 3</span> — Probability:</p>
+$$\P(\text{sum} = 7) = \frac{6}{36} = \frac{1}{6} \approx 0.167$$
+
+<div class="game-tip"
+<strong>Game insight:</strong> 7 is the <em>most likely</em> roll with two dice. Properties 7 spaces from high-traffic spots (like Jail or Go) get hit more often.
+</div>
+</div>
+
+<div class="example-box">
+<h3>📘 Worked Example — Three Dice (Permutations)</h3>
+<p>In some board games you roll three dice. What is the probability of rolling 1, 2, 3 <strong>in that exact order</strong>?</p>
+
+<p><span class="step-label">Step 1</span> — Total outcomes:</p>
+<p style="text-align:center;">$6 \times 6 \times 6 = 216$ total outcomes</p>
+
+<p><span class="step-label">Step 2</span> — Favourable outcomes:</p>
+<p style="text-align:center;">Only one way: (1, 2, 3)</p>
+
+<p><span class="step-label">Step 3</span> — Probability:</p>
+$$\P(1,2,3 \text{ in order}) = \frac{1}{216} \approx 0.00463$$
+
+<p>But what if order <strong>doesn't</strong> matter? How many ways can 1, 2, 3 appear <strong>in any order</strong>?</p>
+
+<p><span class="step-label">Step 4</span> — Count permutations of three different numbers:</p>
+$$3! = 3 \times 2 \times 1 = 6 \text{ ways}$$
+
+<p><span class="step-label">Step 5</span> — New probability:</p>
+$$\P(1,2,3 \text{ any order}) = \frac{6}{216} = \frac{1}{36} \approx 0.0278$$
+
+<div class="game-tip"><strong>Game insight:</strong> In games where you need specific numbers but order doesn't matter, your chances are <em>much better</em> — 6 times better in this case!</div>
+</div>
+
+<div class="example-box">
+<h3>📘 Worked Example — Yahtzee Full House (Combinations)</h3>
+<p>In Yahtzee, a "full house" is three of one number and two of another. What's the probability when rolling five dice?</p>
+
+<p><span class="step-label">Step 1</span> — Total outcomes:</p>
+<p style="text-align:center;">$6^5 = 7776$ total outcomes</p>
+
+<p><span class="step-label">Step 2</span> — Choose which number appears 3 times:</p>
+<p style="text-align:center;">6 choices (could be 1s, 2s, 3s, 4s, 5s, or 6s)</p>
+
+<p><span class="step-label">Step 3</span> — Choose which number appears 2 times:</p>
+<p style="text-align:center;">5 remaining choices</p>
+
+<p><span class="step-label">Step 4</span> — Choose which 3 dice show the triple:</p>
+$$\C{5}{3} = \frac{5!}{3!2!} = 10 \text{ ways}$$
+
+<p><span class="step-label">Step 5</span> — Total full house combinations:</p>
+<p style="text-align:center;">$6 \times 5 \times 10 = 300$ ways</p>
+
+<p><span class="step-label">Step 6</span> — Probability:</p>
+$$\P(\text{full house}) = \frac{300}{7776} \approx 0.0386 \text{ or } 3.86\%$$
+
+<div class="game-tip"><strong>Game insight:</strong> A full house is surprisingly rare — less than 4% chance! Experienced players often aim for straights or four-of-a-kind instead.</div>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 1 — Basic</span><span class="q-marks">[4 marks]</span></div>
+  <p>You roll <strong>two dice</strong>.</p>
+  <p><strong>(a)</strong> <strong>Complete</strong> the table showing all ways to get each sum from 2 to 12. <strong>(2 marks)</strong></p>
+  <table class="dice-table">
+    <tr><th>Sum</th><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td></tr>
+    <tr><th>Ways</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <p><strong>(b)</strong> <strong>Find</strong> $\P(\text{sum} \geq 10)$. <strong>(2 marks)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 2 — Medium</span><span class="q-marks">[5 marks]</span></div>
+  <p>In a dice game, you roll <strong>three dice</strong>. You win if you roll exactly one 6 (and two non-6s).</p>
+  <p><strong>(a)</strong> <strong>Find</strong> the total number of possible outcomes when rolling three dice. <strong>(1 mark)</strong></p>
+  <p><strong>(b)</strong> In how many ways can exactly <strong>one</strong> of the three dice show a 6? Use $\C{3}{1}$. <strong>(2 marks)</strong></p>
+  <p><strong>(c)</strong> <strong>Find</strong> $\P(\text{exactly one 6})$. <strong>(2 marks)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 3 — Exam Style</span><span class="q-marks">[6 marks]</span></div>
+  <p>In Yahtzee, a <strong>"large straight"</strong> is 1-2-3-4-5 or 2-3-4-5-6 in <strong>any order</strong>.</p>
+  <p><strong>(a)</strong> <strong>Find</strong> how many ways you can arrange 1-2-3-4-5 in any order. <strong>(2 marks)</strong></p>
+  <p><strong>(b)</strong> <strong>Find</strong> how many ways you can arrange 2-3-4-5-6 in any order. <strong>(1 mark)</strong></p>
+  <p><strong>(c)</strong> The total number of outcomes when rolling five dice is $6^5 = 7776$. <strong>Find</strong> $\P(\text{large straight})$. <strong>(3 marks)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 4 — Challenging</span><span class="q-marks">[5 marks]</span></div>
+  <p>In Monopoly, players start at <strong>Go</strong> and roll two dice. Some properties are exactly 7 spaces away from Go:</p>
+  <ul>
+    <li>Reading Railroad (space 5) is <strong>not</strong> 7 from Go</li>
+    <li>Chance (space 7) is exactly 7 from Go</li>
+    <li>Vermont Avenue (space 8) is 8 from Go</li>
+  </ul>
+  <p>A property 7 spaces from <strong>Jail</strong> (space 10) would also be hit often because players frequently go to Jail and then roll from there.</p>
+  <p><strong>(a)</strong> <strong>Find</strong> which property is exactly 7 spaces from Jail (space 10). <strong>(1 mark)</strong></p>
+  <p><strong>(b)</strong> <strong>Explain</strong> why properties near Jail might be better investments than properties near Go, using probability language. <strong>(2 marks)</strong></p>
+  <p><strong>(c)</strong> If you could only buy <strong>one</strong> property group, would you choose the group 7 spaces from Jail or 7 spaces from Go? Justify your answer with probabilities. <strong>(2 marks)</strong></p>
+</div>
+
+</div>
+
+<div id="teacher-view" class="worksheet-body hidden">
+
+<h1>🎲 Dice Strategy — Counting Your Chances</h1>
+<p class="meta">MYP3 Enrichment · Markscheme</p>
+
+<h2>Markscheme</h2>
+
+<div class="ms-box">
+<h3>Question 1 — Basic [4 marks]</h3>
+<div class="ms-line"><span class="ms-mark">M1</span> — for correct method listing or counting pairs</div>
+<div class="ms-line"><span class="ms-ans">(a)</span> Completed table:</div>
+<table class="dice-table marks-table">
+  <tr><th>Sum</th><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td></tr>
+  <tr><th>Ways</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td></tr>
+</table>
+<div class="ms-line"><span class="ms-mark">A1</span> — for all values correct</div>
+<div class="ms-line"><span class="ms-ans">(b)</span> $\P(\text{sum} \geq 10) = \frac{3+2+1}{36} = \frac{6}{36} = \frac{1}{6} \approx 0.167$ <span class="ms-mark">M1A1</span></div>
+</div>
+
+<div class="ms-box">
+<h3>Question 2 — Medium [5 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> $6^3 = 216$ total outcomes <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> $\C{3}{1} = 3$ ways to choose which die shows the 6. The other two dice must be non-6: $5 \times 5 = 25$ ways each. <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(c)</span> Total favourable = $3 \times 25 = 75$. $\P = \frac{75}{216} = \frac{25}{72} \approx 0.347$ <span class="ms-mark">M1A1</span></div>
+</div>
+
+<div class="ms-box">
+<h3>Question 3 — Exam Style [6 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> $5! = 120$ ways to arrange 1-2-3-4-5 <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> $5! = 120$ ways to arrange 2-3-4-5-6 <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">(c)</span> Total large straights = $120 + 120 = 240$. $\P = \frac{240}{7776} = \frac{5}{162} \approx 0.0309$ (3.09%) <span class="ms-mark">M1A1A1</span></div>
+</div>
+
+<div class="ms-box">
+<h3>Question 4 — Challenging [5 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> 7 spaces from Jail (10) = space 17 = <strong>Community Chest</strong> (accept "Community Chest" or any property near space 17 depending on board version) <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> $\P(7) = \frac{6}{36} = \frac{1}{6}$ is the highest probability for any sum. Since players <strong>return to Jail</strong> frequently (Go to Jail card, rolling doubles three times, landing on "Go to Jail"), they roll from Jail more often than from Go. Therefore properties 7 spaces from Jail get hit <strong>more frequently overall</strong>. <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(c)</span> Choose the group <strong>7 spaces from Jail</strong>. Reason: while $\P(7) = \frac{1}{6}$ from any starting position, Jail is a <strong>high-traffic starting point</strong> due to multiple ways of being sent there. Expected visits to properties near Jail > expected visits to properties near Go. <span class="ms-mark">M1A1</span></div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+function showView(view) {
+  document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('student-view').classList.toggle('hidden', view !== 'student');
+  document.getElementById('teacher-view').classList.toggle('hidden', view !== 'teacher');
+}
+</script>
+
+<footer class="site-footer">
+  <p>MYP3 Enrichment — Counting Principles</p>
+</footer>
+
+</body>
+</html>
