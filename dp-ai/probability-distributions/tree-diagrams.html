@@ -5,6 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Scaffolded Practice: Tree Diagrams — Conditional Probability</title>
 <link rel="stylesheet" href="../../css/style.css">
+<style>
+/* SVG Diagram Styles */
+.diagram-container {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.tree-svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.tree-label {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  fill: #333;
+}
+
+.tree-prob {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 12px;
+  font-style: italic;
+  fill: #666;
+}
+
+.tree-node {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  fill: #003366;
+}
+</style>
 <script>
 MathJax = {
   tex: {
@@ -23,9 +56,9 @@ MathJax = {
   <div class="nav-container">
     <a href="../../index.html" class="site-title">IB Math <span>Resources</span></a>
     <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../dp-ai/index.html">DP AI SL</a></li>
       <li><a href="../../myp3/index.html">MYP3</a></li>
+      <li><a href="../../dp-ai/index.html">DP AI SL</a></li>
+      <li><a href="../../topics/index.html">Topics</a></li>
     </ul>
   </div>
 </nav>
@@ -67,19 +100,71 @@ MathJax = {
 <p style="text-align:center;">$\P(\text{Red}) = \frac{2}{4}$ &nbsp;&nbsp; $\P(\text{Blue}) = \frac{2}{4}$</p>
 
 <p><span class="step-label">Step 4</span> — Complete tree diagram:</p>
-<pre style="text-align:center; font-family:monospace; margin:1rem 0;">
-                    [Start]
-                   /       \
-              2/5 /         \ 3/5
-                 /           \
-              [Red]        [Blue]
-              /   \          /   \
-         1/4 /     \ 3/4 2/4 /     \ 2/4
-            /       \      /       \
-        [Red]   [Blue] [Red]   [Blue]
-         RR      RB     BR      BB
-       2/20    6/20   6/20    6/20
-</pre>
+
+<div class="diagram-container">
+  <svg class="tree-svg" viewBox="0 0 600 320" width="600" height="320">
+    <!-- Root node -->
+    <circle cx="300" cy="30" r="18" fill="#003366" stroke="#003366" stroke-width="2"/>
+    <text x="300" y="35" font-family="system-ui, sans-serif" font-size="14" fill="white" text-anchor="middle" font-weight="600">Start</text>
+    
+    <!-- First branches -->
+    <line x1="285" y1="45" x2="150" y2="100" stroke="#003366" stroke-width="2"/>
+    <line x1="315" y1="45" x2="450" y2="100" stroke="#003366" stroke-width="2"/>
+    
+    <!-- Probability labels -->
+    <text x="210" y="65" class="tree-prob" text-anchor="middle">2/5</text>
+    <text x="390" y="65" class="tree-prob" text-anchor="middle">3/5</text>
+    
+    <!-- First level nodes -->
+    <rect x="110" y="100" width="80" height="30" rx="5" fill="#e8f0fe" stroke="#003366" stroke-width="2"/>
+    <text x="150" y="120" class="tree-node" text-anchor="middle">Red</text>
+    
+    <rect x="410" y="100" width="80" height="30" rx="5" fill="#e8f0fe" stroke="#003366" stroke-width="2"/>
+    <text x="450" y="120" class="tree-node" text-anchor="middle">Blue</text>
+    
+    <!-- Second branches from Red -->
+    <line x1="130" y1="130" x2="70" y2="190" stroke="#003366" stroke-width="2"/>
+    <line x1="170" y1="130" x2="230" y2="190" stroke="#003366" stroke-width="2"/>
+    
+    <!-- Probability labels -->
+    <text x="90" y="165" class="tree-prob" text-anchor="middle">1/4</text>
+    <text x="210" y="165" class="tree-prob" text-anchor="middle">3/4</text>
+    
+    <!-- Second branches from Blue -->
+    <line x1="430" y1="130" x2="370" y2="190" stroke="#003366" stroke-width="2"/>
+    <line x1="470" y1="130" x2="530" y2="190" stroke="#003366" stroke-width="2"/>
+    
+    <!-- Probability labels -->
+    <text x="390" y="165" class="tree-prob" text-anchor="middle">2/4</text>
+    <text x="510" y="165" class="tree-prob" text-anchor="middle">2/4</text>
+    
+    <!-- Second level nodes -->
+    <rect x="30" y="190" width="80" height="30" rx="5" fill="#e8f0fe" stroke="#003366" stroke-width="2"/>
+    <text x="70" y="210" class="tree-node" text-anchor="middle" font-size="13">Red</text>
+    
+    <rect x="190" y="190" width="80" height="30" rx="5" fill="#e8f0fe" stroke="#003366" stroke-width="2"/>
+    <text x="230" y="210" class="tree-node" text-anchor="middle" font-size="13">Blue</text>
+    
+    <rect x="330" y="190" width="80" height="30" rx="5" fill="#e8f0fe" stroke="#003366" stroke-width="2"/>
+    <text x="370" y="210" class="tree-node" text-anchor="middle" font-size="13">Red</text>
+    
+    <rect x="490" y="190" width="80" height="30" rx="5" fill="#e8f0fe" stroke="#003366" stroke-width="2"/>
+    <text x="530" y="210" class="tree-node" text-anchor="middle" font-size="13">Blue</text>
+    
+    <!-- Outcome labels -->
+    <text x="70" y="245" class="tree-label" text-anchor="middle" font-weight="600">RR</text>
+    <text x="70" y="265" class="tree-label" text-anchor="middle" fill="#003366">2/20</text>
+    
+    <text x="230" y="245" class="tree-label" text-anchor="middle" font-weight="600">RB</text>
+    <text x="230" y="265" class="tree-label" text-anchor="middle" fill="#003366">6/20</text>
+    
+    <text x="370" y="245" class="tree-label" text-anchor="middle" font-weight="600">BR</text>
+    <text x="370" y="265" class="tree-label" text-anchor="middle" fill="#003366">6/20</text>
+    
+    <text x="530" y="245" class="tree-label" text-anchor="middle" font-weight="600">BB</text>
+    <text x="530" y="265" class="tree-label" text-anchor="middle" fill="#003366">6/20</text>
+  </svg>
+</div>
 
 <p><span class="step-label">Step 5</span> — $\P(\text{both same colour})$:</p>
 <p style="text-align:center;">$\P(RR) + \P(BB) = \frac{2}{5} \times \frac{1}{4} + \frac{3}{5} \times \frac{2}{4} = \frac{2}{20} + \frac{6}{20} = \frac{8}{20} = \frac{2}{5}$</p>

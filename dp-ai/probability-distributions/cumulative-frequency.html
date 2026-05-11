@@ -5,6 +5,44 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Scaffolded Practice: Cumulative Frequency & Box Plots</title>
 <link rel="stylesheet" href="../../css/style.css">
+<style>
+/* SVG Diagram Styles */
+.diagram-container {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+/* Box Plot SVG */
+.boxplot-svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Tree Diagram SVG */
+.tree-svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.tree-node {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.tree-label {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+}
+
+.tree-prob {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 12px;
+  font-style: italic;
+  fill: #666;
+}
+</style>
 <script>
 MathJax = {
   tex: {
@@ -23,9 +61,9 @@ MathJax = {
   <div class="nav-container">
     <a href="../../index.html" class="site-title">IB Math <span>Resources</span></a>
     <ul class="nav-links">
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="../../dp-ai/index.html">DP AI SL</a></li>
       <li><a href="../../myp3/index.html">MYP3</a></li>
+      <li><a href="../../dp-ai/index.html">DP AI SL</a></li>
+      <li><a href="../../topics/index.html">Topics</a></li>
     </ul>
   </div>
 </nav>
@@ -72,11 +110,71 @@ MathJax = {
 
 <p><span class="step-label">Step 3</span> &mdash; Draw the box plot:</p>
 <p>Min = 20 g, Max = 400 g (given). Box plot scale from 0 to 400:</p>
-<pre style="text-align:center; font-family:monospace; margin:1rem 0;">
-  0    50   100   150   200   250   300   350   400
-  |-----[====|=========|====]---------------------|
-       Q1   Median    Q3
-</pre>
+
+<div class="diagram-container">
+  <svg class="boxplot-svg" viewBox="0 0 500 120" width="500" height="120">
+    <!-- Scale line -->
+    <line x1="50" y1="80" x2="450" y2="80" stroke="#333" stroke-width="2"/>
+    
+    <!-- Tick marks and labels -->
+    <g font-family="system-ui, sans-serif" font-size="12" fill="#333" text-anchor="middle">
+      <line x1="50" y1="75" x2="50" y2="85" stroke="#333" stroke-width="2"/>
+      <text x="50" y="105">0</text>
+      
+      <line x1="100" y1="75" x2="100" y2="85" stroke="#333" stroke-width="1"/>
+      <text x="100" y="105">50</text>
+      
+      <line x1="150" y1="75" x2="150" y2="85" stroke="#333" stroke-width="1"/>
+      <text x="150" y="105">100</text>
+      
+      <line x1="200" y1="75" x2="200" y2="85" stroke="#333" stroke-width="1"/>
+      <text x="200" y="105">150</text>
+      
+      <line x1="250" y1="75" x2="250" y2="85" stroke="#333" stroke-width="1"/>
+      <text x="250" y="105">200</text>
+      
+      <line x1="300" y1="75" x2="300" y2="85" stroke="#333" stroke-width="1"/>
+      <text x="300" y="105">250</text>
+      
+      <line x1="350" y1="75" x2="350" y2="85" stroke="#333" stroke-width="1"/>
+      <text x="350" y="105">300</text>
+      
+      <line x1="400" y1="75" x2="400" y2="85" stroke="#333" stroke-width="1"/>
+      <text x="400" y="105">350</text>
+      
+      <line x1="450" y1="75" x2="450" y2="85" stroke="#333" stroke-width="2"/>
+      <text x="450" y="105">400</text>
+    </g>
+    
+    <!-- Box plot elements -->
+    <!-- Min whisker -->
+    <line x1="50" y1="55" x2="95" y2="55" stroke="#003366" stroke-width="2"/>
+    
+    <!-- Box (Q1 to Q3) -->
+    <rect x="95" y="40" width="100" height="30" fill="#e8f0fe" stroke="#003366" stroke-width="2"/>
+    
+    <!-- Median line -->
+    <line x1="145" y1="40" x2="145" y2="70" stroke="#c9a227" stroke-width="3"/>
+    
+    <!-- Max whisker -->
+    <line x1="195" y1="55" x2="450" y2="55" stroke="#003366" stroke-width="2"/>
+    
+    <!-- Whiskers end caps -->
+    <line x1="50" y1="48" x2="50" y2="62" stroke="#003366" stroke-width="2"/>
+    <line x1="450" y1="48" x2="450" y2="62" stroke="#003366" stroke-width="2"/>
+    
+    <!-- Labels above -->
+    <g font-family="system-ui, sans-serif" font-size="11" fill="#003366" text-anchor="middle">
+      <text x="50" y="30">Min = 20</text>
+      <text x="95" y="30">Q1 = 95</text>
+      <text x="145" y="30" fill="#c9a227" font-weight="bold">Med = 140</text>
+      <text x="195" y="30">Q3 = 195</text>
+      <text x="450" y="30">Max = 400</text>
+    </g>
+  </svg>
+</div>
+
+<p style="text-align:center; font-size:0.9rem; color:#666;">Box plot showing potato weights (g). The yellow line is the median.</p>
 </div>
 
 <div class="question-box">
@@ -112,10 +210,33 @@ MathJax = {
   <p><strong>(a)</strong> <strong>Find</strong> the number of apples weighing <strong>more than 150 g</strong>. <strong>(2 marks)</strong></p>
   <p><strong>(b)</strong> <strong>Find</strong> the median, lower quartile, and upper quartile. <strong>(2 marks)</strong></p>
   <p><strong>(c)</strong> Given the smallest apple is 80 g and the largest is 280 g, <strong>draw</strong> a box-and-whisker diagram on the scale below. Assume there are no outliers.</p>
-  <pre style="font-family:monospace; margin:0.5rem 0;">
-0    50   100   150   200   250   300
-|----|----|-----|-----|-----|-----|
-  </pre>
+  
+  <div class="diagram-container">
+    <svg class="boxplot-svg" viewBox="0 0 500 100" width="500" height="100">
+      <!-- Scale line -->
+      <line x1="50" y1="70" x2="450" y2="70" stroke="#ccc" stroke-width="1" stroke-dasharray="4"/>
+      
+      <!-- Tick marks and labels -->
+      <g font-family="system-ui, sans-serif" font-size="12" fill="#999" text-anchor="middle">
+        <text x="50" y="90">80</text>
+        <text x="150" y="90">120</text>
+        <text x="250" y="90">160</text>
+        <text x="350" y="90">200</text>
+        <text x="450" y="90">240</text>
+      </g>
+      
+      <!-- Dotted guides for drawing -->
+      <line x1="50" y1="55" x2="50" y2="85" stroke="#ddd" stroke-width="1" stroke-dasharray="2"/>
+      <line x1="150" y1="55" x2="150" y2="85" stroke="#ddd" stroke-width="1" stroke-dasharray="2"/>
+      <line x1="250" y1="55" x2="250" y2="85" stroke="#ddd" stroke-width="1" stroke-dasharray="2"/>
+      <line x1="350" y1="55" x2="350" y2="85" stroke="#ddd" stroke-width="1" stroke-dasharray="2"/>
+      <line x1="450" y1="55" x2="450" y2="85" stroke="#ddd" stroke-width="1" stroke-dasharray="2"/>
+      
+      <!-- Label -->
+      <text x="250" y="30" font-family="system-ui, sans-serif" font-size="13" fill="#666" text-anchor="middle">Draw your box plot here</text>
+    </svg>
+  </div>
+  
   <p><strong>(1 mark)</strong></p>
 </div>
 
@@ -159,6 +280,37 @@ MathJax = {
 <div class="ms-line"><span class="ms-mark">A1</span> &mdash; Median = <strong>160 g</strong>, Q1 = <strong>120 g</strong>, Q3 = <strong>200 g</strong></div>
 <div class="ms-line"><span class="ms-ans">(b)</span> IQR = <strong>80 g</strong> <span class="ms-mark">A1</span></div>
 <div class="ms-line"><span class="ms-mark">M1A1</span> &mdash; Box plot with box and whiskers; M1 for structure, A1 for all statistics in correct positions</div>
+<div class="diagram-container">
+  <svg class="boxplot-svg" viewBox="0 0 500 120" width="500" height="120">
+    <!-- Scale line -->
+    <line x1="50" y1="80" x2="450" y2="80" stroke="#333" stroke-width="2"/>
+    
+    <!-- Tick marks -->
+    <g font-family="system-ui, sans-serif" font-size="12" fill="#333" text-anchor="middle">
+      <line x1="50" y1="75" x2="50" y2="85" stroke="#333" stroke-width="2"/><text x="50" y="105">80</text>
+      <line x1="150" y1="75" x2="150" y2="85" stroke="#333" stroke-width="1"/><text x="150" y="105">120</text>
+      <line x1="250" y1="75" x2="250" y2="85" stroke="#333" stroke-width="1"/><text x="250" y="105">160</text>
+      <line x1="350" y1="75" x2="350" y2="85" stroke="#333" stroke-width="1"/><text x="350" y="105">200</text>
+      <line x1="450" y1="75" x2="450" y2="85" stroke="#333" stroke-width="2"/><text x="450" y="105">280</text>
+    </g>
+    
+    <!-- Box plot: min=80, Q1=120, med=160, Q3=200, max=280 -->
+    <line x1="50" y1="55" x2="150" y2="55" stroke="#003366" stroke-width="2"/>
+    <rect x="150" y="40" width="100" height="30" fill="#e8f0fe" stroke="#003366" stroke-width="2"/>
+    <line x1="250" y1="40" x2="250" y2="70" stroke="#c9a227" stroke-width="3"/>
+    <line x1="250" y1="55" x2="450" y2="55" stroke="#003366" stroke-width="2"/>
+    <line x1="50" y1="48" x2="50" y2="62" stroke="#003366" stroke-width="2"/>
+    <line x1="450" y1="48" x2="450" y2="62" stroke="#003366" stroke-width="2"/>
+    
+    <g font-family="system-ui, sans-serif" font-size="11" fill="#003366" text-anchor="middle">
+      <text x="50" y="30">Min = 80</text>
+      <text x="150" y="30">Q1 = 120</text>
+      <text x="250" y="30" fill="#c9a227" font-weight="bold">Med = 160</text>
+      <text x="350" y="30">Q3 = 200</text>
+      <text x="450" y="30">Max = 280</text>
+    </g>
+  </svg>
+</div>
 </div>
 
 <div class="ms-box">
@@ -168,6 +320,45 @@ MathJax = {
 <div class="ms-line">Upper fence = $80 + 1.5(45) = 80 + 67.5 = 147.5$</div>
 <div class="ms-line">Min = 15 > &minus;32.5, so <strong>not an outlier</strong>. Max = 180 > 147.5, so <strong>is an outlier</strong>. <span class="ms-mark">M1A1</span></div>
 <div class="ms-line"><span class="ms-ans">(c)</span> Box plot with whisker to ~147.5 and max as isolated point at 180 <span class="ms-mark">A1</span></div>
+<div class="diagram-container">
+  <svg class="boxplot-svg" viewBox="0 0 500 140" width="500" height="140">
+    <!-- Scale line -->
+    <line x1="50" y1="90" x2="450" y2="90" stroke="#333" stroke-width="2"/>
+    
+    <!-- Tick marks -->
+    <g font-family="system-ui, sans-serif" font-size="12" fill="#333" text-anchor="middle">
+      <line x1="50" y1="85" x2="50" y2="95" stroke="#333" stroke-width="2"/><text x="50" y="115">0</text>
+      <line x1="130" y1="85" x2="130" y2="95" stroke="#333" stroke-width="1"/><text x="130" y="115">35</text>
+      <line x1="210" y1="85" x2="210" y2="95" stroke="#333" stroke-width="1"/><text x="210" y="115">70</text>
+      <line x1="290" y1="85" x2="290" y2="95" stroke="#333" stroke-width="1"/><text x="290" y="115">105</text>
+      <line x1="370" y1="85" x2="370" y2="95" stroke="#333" stroke-width="1"/><text x="370" y="115">140</text>
+      <line x1="450" y1="85" x2="450" y2="95" stroke="#333" stroke-width="2"/><text x="450" y="115">180</text>
+    </g>
+    
+    <!-- Box plot: min=15, Q1=35, med=55, Q3=80, upper fence=147.5, outlier at 180 -->
+    <line x1="55" y1="65" x2="130" y2="65" stroke="#003366" stroke-width="2"/>
+    <rect x="130" y="50" width="110" height="30" fill="#e8f0fe" stroke="#003366" stroke-width="2"/>
+    <line x1="190" y1="50" x2="190" y2="80" stroke="#c9a227" stroke-width="3"/>
+    <line x1="240" y1="65" x2="355" y2="65" stroke="#003366" stroke-width="2"/>
+    <line x1="55" y1="58" x2="55" y2="72" stroke="#003366" stroke-width="2"/>
+    <line x1="355" y1="58" x2="355" y2="72" stroke="#003366" stroke-width="2"/>
+    
+    <!-- Outlier point -->
+    <circle cx="450" cy="65" r="5" fill="#c9a227" stroke="#003366" stroke-width="2"/>
+    
+    <!-- Dotted line to outlier -->
+    <line x1="355" y1="65" x2="445" y2="65" stroke="#999" stroke-width="1" stroke-dasharray="4"/>
+    
+    <g font-family="system-ui, sans-serif" font-size="11" fill="#003366" text-anchor="middle">
+      <text x="55" y="40">Min = 15</text>
+      <text x="130" y="40">Q1 = 35</text>
+      <text x="190" y="40" fill="#c9a227" font-weight="bold">Med = 55</text>
+      <text x="240" y="40">Q3 = 80</text>
+      <text x="355" y="40">Fence = 147.5</text>
+      <text x="450" y="40" fill="#c9a227">Outlier</text>
+    </g>
+  </svg>
+</div>
 </div>
 
 </div>
