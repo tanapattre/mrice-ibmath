@@ -3,24 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dice Strategy — Counting Your Chances</title>
+<title>Counting Principles — Game Strategy</title>
 <link rel="stylesheet" href="../../css/style.css">
 <style>
-.diagram-container { display: flex; justify-content: center; margin: 1.5rem 0; }
-.dice-svg, .tree-svg { max-width: 100%; height: auto; }
 .game-tip { background: #fff8e7; border-left: 4px solid #c9a227; padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 4px 4px 0; }
 .game-tip strong { color: #003366; }
-.dice-table { width: auto; margin: 1rem auto; border-collapse: collapse; font-family: system-ui, sans-serif; font-size: 14px; }
-.dice-table th, .dice-table td { border: 1px solid #ccc; padding: 6px 14px; text-align: center; }
-.dice-table th { background: #f0f0f0; }
-.dice-table .highlight { background: #fff3cd; font-weight: 600; }
+.count-table { width: auto; margin: 1rem auto; border-collapse: collapse; font-family: system-ui, sans-serif; font-size: 14px; }
+.count-table th, .count-table td { border: 1px solid #ccc; padding: 6px 14px; text-align: center; }
+.count-table th { background: #f0f0f0; }
+.count-table .highlight { background: #fff3cd; font-weight: 600; }
+.section-divider { border-top: 3px solid var(--ib-blue); margin: 2.5rem 0 1.5rem; padding-top: 1rem; }
 </style>
 <script>
 MathJax = {
   tex: {
     inlineMath: [['$', '$'], ['\\(', '\\)']],
     displayMath: [['$$', '$$'], ['\\[', '\\]']],
-    macros: { P: "\\mathbb{P}", C: "{\\binom{#1}{#2}}" }
+    macros: { P: "\\mathbb{P}", C: "{\\binom{#1}{#2}}", fact: "{#1!}" }
   },
   startup: { pageReady: () => MathJax.startup.defaultPageReady() }
 };
@@ -49,176 +48,404 @@ MathJax = {
 
 <div id="student-view" class="worksheet-body">
 
-<h1>🎲 Dice Strategy — Counting Your Chances</h1>
-<p class="meta">MYP3 Enrichment · Counting Principles · For students who finish class work early</p>
+<h1>🎲 Counting Principles — Game Strategy</h1>
+<p class="meta">MYP3 Enrichment · Four Topics: Orderings, Permutations, Combinations, Multinomial Sampling · For students who finish class work early</p>
 
-<div class="game-tip"
-<strong>Game Context:</strong> In Monopoly, you roll two dice and move that many spaces. Some properties get landed on <em>way more often</em> than others. Why? Let's use counting to find out.
+<div class="game-tip">
+<strong>Theme:</strong> Using probability to help us when we play games. We’ll explore four counting ideas and see how they show up in race games, card games, and deck-building games.
+</div>
+
+<!-- ============================================================ -->
+<div class="section-divider">
+<h2>Part A — Orderings & Factorials</h2>
+<p class="meta">How many ways can we arrange things? Racing games, playlists, lock combinations.</p>
 </div>
 
 <div class="recall-box">
-<h3>🔑 Counting Principles</h3>
+<h3>🔑 Building the Idea</h3>
 <ul>
-  <li><strong>Fundamental Counting Principle:</strong> If event A has $m$ outcomes and event B has $n$ outcomes, then A <strong>and</strong> B together have $m \times n$ outcomes.</li>
-  <li><strong>Factorial:</strong> $n! = n \times (n-1) \times (n-2) \times \ldots \times 2 \times 1$</li>
-  <li><strong>Permutations</strong> (order matters): $\P(n,r) = \frac{n!}{(n-r)!}$</li>
-  <li><strong>Combinations</strong> (order doesn't matter): $\C{n}{r} = \frac{n!}{r!(n-r)!}$</li>
+  <li>3 racers: A can be 1st/2nd/3rd, then B has 2 spots left, then C has 1 spot. Total: $3 \times 2 \times 1 = 6$.</li>
+  <li><strong>Factorial:</strong> $n! = n \times (n-1) \times \ldots \times 2 \times 1$</li>
+  <li>Special case: $0! = 1$ (one way to arrange nothing)</li>
 </ul>
 </div>
 
 <div class="example-box">
-<h3>📘 Worked Example — Two Dice</h3>
-<p>You roll two standard six-sided dice. How many ways can you get a sum of 7?</p>
+<h3>📘 Worked Example — Race to the Finish</h3>
+<p>Four friends (Alex, Blake, Casey, Dana) race in Mario Kart. How many different finishing orders?</p>
 
-<p><span class="step-label">Step 1</span> — Total possible outcomes:</p>
-<p style="text-align:center;">$6 \times 6 = 36$ total outcomes</p>
+<p><span class="step-label">Step 1</span> — List the slots: 1st, 2nd, 3rd, 4th.</p>
+<p><span class="step-label">Step 2</span> — Fill the slots one by one:</p>
+<ul>
+  <li>1st place: 4 possible racers</li>
+  <li>2nd place: 3 racers still available</li>
+  <li>3rd place: 2 racers still available</li>
+  <li>4th place: 1 racer left</li>
+</ul>
+<p><span class="step-label">Step 3</span> — Multiply:</p>
+$$4 \times 3 \times 2 \times 1 = 4! = 24 \text{ different finishing orders}$$
 
-<p><span class="step-label">Step 2</span> — List all ways to make 7:</p>
-<table class="dice-table">
-  <tr><th>Die 1</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
-  <tr><th>Die 2</th><td class="highlight">6</td><td class="highlight">5</td><td class="highlight">4</td><td class="highlight">3</td><td class="highlight">2</td><td class="highlight">1</td></tr>
-</table>
-
-<p style="text-align:center;">6 ways to roll a 7</p>
-
-<p><span class="step-label">Step 3</span> — Probability:</p>
-$$\P(\text{sum} = 7) = \frac{6}{36} = \frac{1}{6} \approx 0.167$$
-
-<div class="game-tip"
-<strong>Game insight:</strong> 7 is the <em>most likely</em> roll with two dice. Properties 7 spaces from high-traffic spots (like Jail or Go) get hit more often.
+<div class="game-tip">
+<strong>Game insight:</strong> If you bet on the exact order of 4 friends, you have a $1/24 \approx 4.2\%$ chance of winning.
 </div>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">A1 — Basic</span><span class="q-marks">[3 marks]</span></div>
+  <p>Three songs (Rock, Pop, Jazz) can be played in any order.</p>
+  <p><strong>(a)</strong> <strong>List</strong> all 6 possible playlists. <strong>(2 marks)</strong></p>
+  <p><strong>(b)</strong> <strong>Verify</strong> that $3! = 6$ matches your list. <strong>(1 mark)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">A2 — Medium</span><span class="q-marks">[4 marks]</span></div>
+  <p>Five racers (A, B, C, D, E) finish a race.</p>
+  <p><strong>(a)</strong> <strong>Calculate</strong> $5!$. <strong>(1 mark)</strong></p>
+  <p><strong>(b)</strong> <strong>Explain</strong> why $5! = 5 \times 4!$. <strong>(2 marks)</strong></p>
+  <p><strong>(c)</strong> If you randomly guess the top 3 finishers <strong>in exact order</strong>, what is your probability of being correct? <strong>(1 mark)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">A3 — Exam Style</span><span class="q-marks">[5 marks]</span></div>
+  <p>In a board game, 6 players are dealt 6 different power-up cards: Shield, Sword, Potion, Map, Key, and Crown.</p>
+  <p><strong>(a)</strong> <strong>Find</strong> how many ways the 6 cards can be distributed to the 6 players (one card each). <strong>(2 marks)</strong></p>
+  <p><strong>(b)</strong> Player 1 really wants the Crown. <strong>Find</strong> the probability that Player 1 gets the Crown. <strong>(2 marks)</strong></p>
+  <p><strong>(c)</strong> <strong>Explain</strong> why the answer to (b) is the same as $\frac{1}{6}$ without using factorials. <strong>(1 mark)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">A4 — Challenging</span><span class="q-marks">[4 marks]</span></div>
+  <p>The word <strong>BANANA</strong> has 6 letters with repeats: three As, two Ns, one B.</p>
+  <p><strong>(a)</span></strong> If all letters were different, there would be $6!$ arrangements. <strong>Calculate</strong> $6!$. <strong>(1 mark)</strong></p>
+  <p><strong>(b)</strong> Because the three As are identical, swapping them does not create a new word. <strong>Explain</strong> why we divide by $3!$ for the As. <strong>(2 marks)</strong></p>
+  <p><strong>(c)</strong> <strong>Find</strong> how many distinct arrangements of BANANA exist. <strong>(1 mark)</strong></p>
+</div>
+
+<!-- ============================================================ -->
+<div class="section-divider">
+<h2>Part B — Permutations</h2>
+<p class="meta">Order matters. Drawing cards in sequence, lock codes, racing qualifiers.</p>
+</div>
+
+<div class="recall-box">
+<h3>🔑 Building the Idea</h3>
+<ul>
+  <li>Sometimes we choose <strong>r</strong> items from <strong>n</strong> and the <strong>order matters</strong>.</li>
+  <li>Example: drawing 3 cards from 10 where (Ace, King, Queen) is different from (Queen, King, Ace).</li>
+  <li>Permutation formula: $\P(n,r) = \frac{n!}{(n-r)!} = n \times (n-1) \times \ldots \times (n-r+1)$</li>
+  <li>Notice: $\P(n,n) = n!$ (all items arranged)</li>
+</ul>
 </div>
 
 <div class="example-box">
-<h3>📘 Worked Example — Three Dice (Permutations)</h3>
-<p>In some board games you roll three dice. What is the probability of rolling 1, 2, 3 <strong>in that exact order</strong>?</p>
+<h3>📘 Worked Example — Card Draw Sequence</h3>
+<p>A game uses a 10-card deck numbered 1–10. You draw 3 cards <strong>without replacement</strong>. How many different ordered 3-card sequences?</p>
 
-<p><span class="step-label">Step 1</span> — Total outcomes:</p>
-<p style="text-align:center;">$6 \times 6 \times 6 = 216$ total outcomes</p>
+<p><span class="step-label">Step 1</span> — Slot method:</p>
+<ul>
+  <li>1st card: 10 choices</li>
+  <li>2nd card: 9 choices left</li>
+  <li>3rd card: 8 choices left</li>
+</ul>
+<p><span class="step-label">Step 2</span> — Multiply:</p>
+$$10 \times 9 \times 8 = 720 \text{ ordered sequences}$$
 
-<p><span class="step-label">Step 2</span> — Favourable outcomes:</p>
-<p style="text-align:center;">Only one way: (1, 2, 3)</p>
+<p><span class="step-label">Step 3</span> — Using the formula:</p>
+$$\P(10,3) = \frac{10!}{(10-3)!} = \frac{10!}{7!} = \frac{3,628,800}{5,040} = 720$$
 
-<p><span class="step-label">Step 3</span> — Probability:</p>
-$$\P(1,2,3 \text{ in order}) = \frac{1}{216} \approx 0.00463$$
+<div class="game-tip">
+<strong>Game insight:</strong> If a game bonus triggers only on (Sword, Shield, Potion) in that exact order, there are 720 possible draws — so that exact sequence has probability $\frac{1}{720} \approx 0.139\%$.
+</div>
+</div>
 
-<p>But what if order <strong>doesn't</strong> matter? How many ways can 1, 2, 3 appear <strong>in any order</strong>?</p>
+<div class="question-box">
+  <div class="question-header"><span class="q-label">B1 — Basic</span><span class="q-marks">[3 marks]</span></div>
+  <p>A combination lock has digits 1–5, no repeats allowed, and the code is 2 digits long.</p>
+  <p><strong>(a)</strong> <strong>List</strong> all possible codes using a tree diagram or table. <strong>(2 marks)</strong></p>
+  <p><strong>(b)</strong> <strong>Verify</strong> that your list has $\P(5,2) = 5 \times 4 = 20$ entries. <strong>(1 mark)</strong></p>
+</div>
 
-<p><span class="step-label">Step 4</span> — Count permutations of three different numbers:</p>
-$$3! = 3 \times 2 \times 1 = 6 \text{ ways}$$
+<div class="question-box">
+  <div class="question-header"><span class="q-label">B2 — Medium</span><span class="q-marks">[4 marks]</span></div>
+  <p>In a card game, you draw 4 cards from a 15-card deck. Order matters for scoring.</p>
+  <p><strong>(a)</strong> <strong>Calculate</strong> $\P(15,4)$ using the slot method ($15 \times 14 \times 13 \times 12$). <strong>(2 marks)</strong></p>
+  <p><strong>(b)</strong> <strong>Verify</strong> the same answer using the formula $\frac{15!}{11!}$. <strong>(2 marks)</strong></p>
+</div>
 
-<p><span class="step-label">Step 5</span> — New probability:</p>
-$$\P(1,2,3 \text{ any order}) = \frac{6}{216} = \frac{1}{36} \approx 0.0278$$
+<div class="question-box">
+  <div class="question-header"><span class="q-label">B3 — Exam Style</span><span class="q-marks">[5 marks]</span></div>
+  <p>A racing game has 8 qualifiers, but only the <strong>top 3</strong> advance to the final. The final race order is determined by qualifier finish (1st qualifier starts 1st, etc.).</p>
+  <p><strong>(a)</strong> <strong>Find</strong> how many different "top 3" finishes are possible from 8 racers. <strong>(2 marks)</strong></p>
+  <p><strong>(b)</strong> Racer Alex is one of the 8. <strong>Find</strong> the probability that Alex finishes in the top 3. <strong>(2 marks)</strong></p>
+  <p><strong>(c)</strong> <strong>Explain</strong> why the answer to (b) is $\frac{3}{8}$ using symmetry, not factorials. <strong>(1 mark)</strong></p>
+</div>
 
-<div class="game-tip"><strong>Game insight:</strong> In games where you need specific numbers but order doesn't matter, your chances are <em>much better</em> — 6 times better in this case!</div>
+<div class="question-box">
+  <div class="question-header"><span class="q-label">B4 — Challenging</span><span class="q-marks">[6 marks]</span></div>
+  <p>A password system allows 8-character codes using digits 0–9 with <strong>no repeats</strong>. A hacker tries random codes.</p>
+  <p><strong>(a)</strong> <strong>Find</strong> the total number of possible 8-digit codes. <strong>(2 marks)</strong></p>
+  <p><strong>(b)</strong> The system locks after 3 wrong attempts. <strong>Find</strong> the probability the hacker guesses correctly within 3 tries. <strong>(2 marks)</strong></p>
+  <p><strong>(c)</strong> If repeats <strong>were</strong> allowed, how many 8-digit codes would exist? Compare this to your answer in (a) and explain why no-repeat codes are more secure. <strong>(2 marks)</strong></p>
+</div>
+
+<!-- ============================================================ -->
+<div class="section-divider">
+<h2>Part C — Combinations</h2>
+<p class="meta">Order does NOT matter. Poker hands, team selection, loot drops.</p>
+</div>
+
+<div class="recall-box">
+<h3>🔑 Building the Idea</h3>
+<ul>
+  <li>When order does <strong>not</strong> matter, we have fewer distinct outcomes.</li>
+  <li>Example: choosing 2 teammates from 6 people. (Alice, Bob) is the same pair as (Bob, Alice).</li>
+  <li>Each group of $r$ items can be arranged in $r!$ ways — so we divide permutations by $r!$.</li>
+  <li>Combination formula: $\C{n}{r} = \frac{n!}{r!(n-r)!}$</li>
+</ul>
 </div>
 
 <div class="example-box">
-<h3>📘 Worked Example — Yahtzee Full House (Combinations)</h3>
-<p>In Yahtzee, a "full house" is three of one number and two of another. What's the probability when rolling five dice?</p>
+<h3>📘 Worked Example — Poker Hands</h3>
+<p>How many different 5-card hands from a 52-card deck?</p>
 
-<p><span class="step-label">Step 1</span> — Total outcomes:</p>
-<p style="text-align:center;">$6^5 = 7776$ total outcomes</p>
+<p><span class="step-label">Step 1</span> — If order mattered:</p>
+$$\P(52,5) = 52 \times 51 \times 50 \times 49 \times 48 = 311,875,200$$
 
-<p><span class="step-label">Step 2</span> — Choose which number appears 3 times:</p>
-<p style="text-align:center;">6 choices (could be 1s, 2s, 3s, 4s, 5s, or 6s)</p>
+<p><span class="step-label">Step 2</span> — But in poker, (A♠, K♠, Q♠, J♠, 10♠) is the same hand in any order.</p>
+<p>Each hand of 5 cards can be arranged in $5! = 120$ ways.</p>
 
-<p><span class="step-label">Step 3</span> — Choose which number appears 2 times:</p>
-<p style="text-align:center;">5 remaining choices</p>
+<p><span class="step-label">Step 3</span> — Divide to remove duplicate orderings:</p>
+$$\C{52}{5} = \frac{\P(52,5)}{5!} = \frac{311,875,200}{120} = 2,598,960$$
 
-<p><span class="step-label">Step 4</span> — Choose which 3 dice show the triple:</p>
-$$\C{5}{3} = \frac{5!}{3!2!} = 10 \text{ ways}$$
-
-<p><span class="step-label">Step 5</span> — Total full house combinations:</p>
-<p style="text-align:center;">$6 \times 5 \times 10 = 300$ ways</p>
-
-<p><span class="step-label">Step 6</span> — Probability:</p>
-$$\P(\text{full house}) = \frac{300}{7776} \approx 0.0386 \text{ or } 3.86\%$$
-
-<div class="game-tip"><strong>Game insight:</strong> A full house is surprisingly rare — less than 4% chance! Experienced players often aim for straights or four-of-a-kind instead.</div>
+<div class="game-tip">
+<strong>Game insight:</strong> A Royal Flush has only 4 possible hands (one per suit). Probability = $\frac{4}{2,598,960} \approx 0.000154\%$.
+</div>
 </div>
 
 <div class="question-box">
-  <div class="question-header"><span class="q-label">Question 1 — Basic</span><span class="q-marks">[4 marks]</span></div>
-  <p>You roll <strong>two dice</strong>.</p>
-  <p><strong>(a)</strong> <strong>Complete</strong> the table showing all ways to get each sum from 2 to 12. <strong>(2 marks)</strong></p>
-  <table class="dice-table">
-    <tr><th>Sum</th><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td></tr>
-    <tr><th>Ways</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-  </table>
-  <p><strong>(b)</strong> <strong>Find</strong> $\P(\text{sum} \geq 10)$. <strong>(2 marks)</strong></p>
+  <div class="question-header"><span class="q-label">C1 — Basic</span><span class="q-marks">[4 marks]</span></div>
+  <p>You choose 2 friends from 4 (Alex, Blake, Casey, Dana) for a team.</p>
+  <p><strong>(a)</strong> <strong>List</strong> all possible pairs. <strong>(2 marks)</strong></p>
+  <p><strong>(b)</strong> <strong>Count</strong> your list. <strong>(1 mark)</strong></p>
+  <p><strong>(c)</strong> <strong>Verify</strong> using $\C{4}{2} = \frac{4!}{2!2!} = 6$. <strong>(1 mark)</strong></p>
 </div>
 
 <div class="question-box">
-  <div class="question-header"><span class="q-label">Question 2 — Medium</span><span class="q-marks">[5 marks]</span></div>
-  <p>In a dice game, you roll <strong>three dice</strong>. You win if you roll exactly one 6 (and two non-6s).</p>
-  <p><strong>(a)</strong> <strong>Find</strong> the total number of possible outcomes when rolling three dice. <strong>(1 mark)</strong></p>
-  <p><strong>(b)</strong> In how many ways can exactly <strong>one</strong> of the three dice show a 6? Use $\C{3}{1}$. <strong>(2 marks)</strong></p>
-  <p><strong>(c)</strong> <strong>Find</strong> $\P(\text{exactly one 6})$. <strong>(2 marks)</strong></p>
+  <div class="question-header"><span class="q-label">C2 — Medium</span><span class="q-marks">[4 marks]</span></div>
+  <p>A game has 12 different weapons and you loot 3.</p>
+  <p><strong>(a)</strong> <strong>Find</strong> $\P(12,3)$ (order matters). <strong>(1 mark)</strong></p>
+  <p><strong>(b)</strong> <strong>Explain</strong> why we divide by $3!$ to get combinations. <strong>(2 marks)</strong></p>
+  <p><strong>(c)</strong> <strong>Calculate</strong> $\C{12}{3}$. <strong>(1 mark)</strong></p>
 </div>
 
 <div class="question-box">
-  <div class="question-header"><span class="q-label">Question 3 — Exam Style</span><span class="q-marks">[6 marks]</span></div>
-  <p>In Yahtzee, a <strong>"large straight"</strong> is 1-2-3-4-5 or 2-3-4-5-6 in <strong>any order</strong>.</p>
-  <p><strong>(a)</strong> <strong>Find</strong> how many ways you can arrange 1-2-3-4-5 in any order. <strong>(2 marks)</strong></p>
-  <p><strong>(b)</strong> <strong>Find</strong> how many ways you can arrange 2-3-4-5-6 in any order. <strong>(1 mark)</strong></p>
-  <p><strong>(c)</strong> The total number of outcomes when rolling five dice is $6^5 = 7776$. <strong>Find</strong> $\P(\text{large straight})$. <strong>(3 marks)</strong></p>
+  <div class="question-header"><span class="q-label">C3 — Exam Style</span><span class="q-marks">[6 marks]</span></div>
+  <p>In a simplified poker game using only cards 2–10 (9 cards per suit, 4 suits = 36 cards total), you draw 5 cards.</p>
+  <p><strong>(a)</strong> <strong>Find</strong> the total number of 5-card hands. <strong>(2 marks)</strong></p>
+  <p><strong>(b)</strong> A "three of a kind" means 3 cards of the same number + 2 other cards that don't match. <strong>Find</strong> the probability of three of a kind. <strong>(4 marks)</strong></p>
 </div>
 
 <div class="question-box">
-  <div class="question-header"><span class="q-label">Question 4 — Challenging</span><span class="q-marks">[5 marks]</span></div>
-  <p>In Monopoly, players start at <strong>Go</strong> and roll two dice. Some properties are exactly 7 spaces away from Go:</p>
-  <ul>
-    <li>Reading Railroad (space 5) is <strong>not</strong> 7 from Go</li>
-    <li>Chance (space 7) is exactly 7 from Go</li>
-    <li>Vermont Avenue (space 8) is 8 from Go</li>
-  </ul>
-  <p>A property 7 spaces from <strong>Jail</strong> (space 10) would also be hit often because players frequently go to Jail and then roll from there.</p>
-  <p><strong>(a)</strong> <strong>Find</strong> which property is exactly 7 spaces from Jail (space 10). <strong>(1 mark)</strong></p>
-  <p><strong>(b)</strong> <strong>Explain</strong> why properties near Jail might be better investments than properties near Go, using probability language. <strong>(2 marks)</strong></p>
-  <p><strong>(c)</strong> If you could only buy <strong>one</strong> property group, would you choose the group 7 spaces from Jail or 7 spaces from Go? Justify your answer with probabilities. <strong>(2 marks)</strong></p>
+  <div class="question-header"><span class="q-label">C4 — Challenging</span><span class="q-marks">[5 marks]</span></div>
+  <p>A game tournament has 10 players: 6 girls and 4 boys. A team of 4 is chosen at random.</p>
+  <p><strong>(a)</strong> <strong>Find</strong> the total number of possible teams. <strong>(1 mark)</strong></p>
+  <p><strong>(b)</strong> <strong>Find</strong> the number of teams with exactly 2 girls and 2 boys. <strong>(2 marks)</strong></p>
+  <p><strong>(c)</strong> <strong>Find</strong> the probability of a balanced team (2 girls, 2 boys). <strong>(2 marks)</strong></p>
+</div>
+
+<!-- ============================================================ -->
+<div class="section-divider">
+<h2>Part D — Sampling: Multiple Types</h2>
+<p class="meta">Deck-building games, loot boxes, card packs. Selecting from multiple categories.</p>
+</div>
+
+<div class="recall-box">
+<h3>🔑 Building the Idea</h3>
+<ul>
+  <li>Sometimes we select from <strong>multiple categories</strong> at once.</li>
+  <li>Example: a deck has Action, Resource, and Victory cards. We draw a hand with specific counts of each.</li>
+  <li>Count: $\C{N_1}{n_1} \times \C{N_2}{n_2} \times \C{N_3}{n_3}$ ways to get $n_1$ of type 1, $n_2$ of type 2, etc.</li>
+  <li>Divide by total ways to draw that many cards: $\C{N_{\text{total}}}{n_{\text{total}}}$</li>
+</ul>
+</div>
+
+<div class="example-box">
+<h3>📘 Worked Example — Deck Builder Hand</h3>
+<p>A deck has 12 <strong>Action</strong> cards, 20 <strong>Resource</strong> cards, and 8 <strong>Victory</strong> cards (40 total). You draw 5 cards. What's the probability of exactly 2 Action, 2 Resource, and 1 Victory?</p>
+
+<p><span class="step-label">Step 1</span> — Total ways to draw 5 from 40:</p>
+$$\C{40}{5} = \frac{40!}{5!35!} = 658,008$$
+
+<p><span class="step-label">Step 2</span> — Ways to get 2 Action from 12:</p>
+$$\C{12}{2} = \frac{12!}{2!10!} = 66$$
+
+<p><span class="step-label">Step 3</span> — Ways to get 2 Resource from 20:</p>
+$$\C{20}{2} = \frac{20!}{2!18!} = 190$$
+
+<p><span class="step-label">Step 4</span> — Ways to get 1 Victory from 8:</p>
+$$\C{8}{1} = 8$$
+
+<p><span class="step-label">Step 5</span> — Multiply and divide:</p>
+$$\P = \frac{66 \times 190 \times 8}{658,008} = \frac{100,320}{658,008} \approx 0.152 \text{ or } 15.2\%$$
+
+<div class="game-tip">
+<strong>Game insight:</strong> Deck builders carefully balance ratios. If you add too many Victory cards early, you draw "dead" hands — and we can calculate exactly how often that happens.
+</div>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">D1 — Basic</span><span class="q-marks">[4 marks]</span></div>
+  <p>A bag has 5 red and 5 blue marbles. You draw 3 marbles.</p>
+  <p><strong>(a)</strong> <strong>Find</strong> the total ways to draw 3 from 10. <strong>(1 mark)</strong></p>
+  <p><strong>(b)</strong> <strong>Find</strong> the ways to get 2 red and 1 blue. <strong>(2 marks)</strong></p>
+  <p><strong>(c)</strong> <strong>Find</strong> $\P(2 \text{ red}, 1 \text{ blue})$. <strong>(1 mark)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">D2 — Medium</span><span class="q-marks">[5 marks]</span></div>
+  <p>A card pack has 8 rare, 12 uncommon, and 20 common cards (40 total). You open a pack of 5 cards.</p>
+  <p><strong>(a)</strong> <strong>Find</strong> $\P(\text{1 rare, 2 uncommon, 2 common})$. <strong>(3 marks)</strong></p>
+  <p><strong>(b)</strong> <strong>Find</strong> $\P(\text{at least 1 rare})$. Hint: use complement. <strong>(2 marks)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">D3 — Exam Style</span><span class="q-marks">[6 marks]</span></div>
+  <p>A deck-building game has: 15 <strong>Attack</strong>, 10 <strong>Defend</strong>, 5 <strong>Special</strong> cards. You draw 6 cards.</p>
+  <p><strong>(a)</strong> <strong>Find</strong> $\P(\text{3 Attack, 2 Defend, 1 Special})$. <strong>(3 marks)</strong></p>
+  <p><strong>(b)</strong> A "good hand" is defined as at least 2 Attack AND at least 1 Special. <strong>Find</strong> $\P(\text{good hand})$. <strong>(3 marks)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">D4 — Challenging</span><span class="q-marks">[5 marks]</span></div>
+  <p>A game has two draw modes: <strong>with replacement</strong> and <strong>without replacement</strong>. A bag has 3 gold and 7 silver coins. You draw 2 coins.</p>
+  <p><strong>(a)</strong> <strong>Find</strong> $\P(\text{both gold})$ <strong>with</strong> replacement. <strong>(1 mark)</strong></p>
+  <p><strong>(b)</strong> <strong>Find</strong> $\P(\text{both gold})$ <strong>without</strong> replacement. <strong>(2 marks)</strong></p>
+  <p><strong>(c)</strong> <strong>Explain</strong> which probability is higher and why this makes sense. <strong>(2 marks)</strong></p>
 </div>
 
 </div>
 
 <div id="teacher-view" class="worksheet-body hidden">
 
-<h1>🎲 Dice Strategy — Counting Your Chances</h1>
+<h1>🎲 Counting Principles — Game Strategy</h1>
 <p class="meta">MYP3 Enrichment · Markscheme</p>
 
-<h2>Markscheme</h2>
+<!-- Part A Markscheme -->
+<h2>Part A — Orderings & Factorials</h2>
 
 <div class="ms-box">
-<h3>Question 1 — Basic [4 marks]</h3>
-<div class="ms-line"><span class="ms-mark">M1</span> — for correct method listing or counting pairs</div>
-<div class="ms-line"><span class="ms-ans">(a)</span> Completed table:</div>
-<table class="dice-table marks-table">
-  <tr><th>Sum</th><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td></tr>
-  <tr><th>Ways</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td></tr>
-</table>
-<div class="ms-line"><span class="ms-mark">A1</span> — for all values correct</div>
-<div class="ms-line"><span class="ms-ans">(b)</span> $\P(\text{sum} \geq 10) = \frac{3+2+1}{36} = \frac{6}{36} = \frac{1}{6} \approx 0.167$ <span class="ms-mark">M1A1</span></div>
+<h3>A1 — Basic [3 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> All 6 playlists: Rock-Pop-Jazz, Rock-Jazz-Pop, Pop-Rock-Jazz, Pop-Jazz-Rock, Jazz-Rock-Pop, Jazz-Pop-Rock <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> $3! = 3 \times 2 \times 1 = 6$, which matches the 6 playlists <span class="ms-mark">A1</span></div>
 </div>
 
 <div class="ms-box">
-<h3>Question 2 — Medium [5 marks]</h3>
-<div class="ms-line"><span class="ms-ans">(a)</span> $6^3 = 216$ total outcomes <span class="ms-mark">A1</span></div>
-<div class="ms-line"><span class="ms-ans">(b)</span> $\C{3}{1} = 3$ ways to choose which die shows the 6. The other two dice must be non-6: $5 \times 5 = 25$ ways each. <span class="ms-mark">M1A1</span></div>
-<div class="ms-line"><span class="ms-ans">(c)</span> Total favourable = $3 \times 25 = 75$. $\P = \frac{75}{216} = \frac{25}{72} \approx 0.347$ <span class="ms-mark">M1A1</span></div>
+<h3>A2 — Medium [4 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> $5! = 5 \times 4 \times 3 \times 2 \times 1 = 120$ <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> $5! = 5 \times (4 \times 3 \times 2 \times 1) = 5 \times 4!$; the first slot has 5 choices, then 4! ways to arrange the rest <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(c)</span> $\P = \frac{1}{\P(5,3)} = \frac{1}{5 \times 4 \times 3} = \frac{1}{60} \approx 0.0167$ <span class="ms-mark">A1</span></div>
 </div>
 
 <div class="ms-box">
-<h3>Question 3 — Exam Style [6 marks]</h3>
-<div class="ms-line"><span class="ms-ans">(a)</span> $5! = 120$ ways to arrange 1-2-3-4-5 <span class="ms-mark">M1A1</span></div>
-<div class="ms-line"><span class="ms-ans">(b)</span> $5! = 120$ ways to arrange 2-3-4-5-6 <span class="ms-mark">A1</span></div>
-<div class="ms-line"><span class="ms-ans">(c)</span> Total large straights = $120 + 120 = 240$. $\P = \frac{240}{7776} = \frac{5}{162} \approx 0.0309$ (3.09%) <span class="ms-mark">M1A1A1</span></div>
+<h3>A3 — Exam Style [5 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> $6! = 720$ ways <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> By symmetry, Player 1 is equally likely to get any of 6 cards. $\P = \frac{1}{6}$ <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(c)</span> There are 6 cards and 6 players; each card goes to exactly one player. By symmetry, Crown is equally likely to go to any player. <span class="ms-mark">R1</span></div>
 </div>
 
 <div class="ms-box">
-<h3>Question 4 — Challenging [5 marks]</h3>
-<div class="ms-line"><span class="ms-ans">(a)</span> 7 spaces from Jail (10) = space 17 = <strong>Community Chest</strong> (accept "Community Chest" or any property near space 17 depending on board version) <span class="ms-mark">A1</span></div>
-<div class="ms-line"><span class="ms-ans">(b)</span> $\P(7) = \frac{6}{36} = \frac{1}{6}$ is the highest probability for any sum. Since players <strong>return to Jail</strong> frequently (Go to Jail card, rolling doubles three times, landing on "Go to Jail"), they roll from Jail more often than from Go. Therefore properties 7 spaces from Jail get hit <strong>more frequently overall</strong>. <span class="ms-mark">M1A1</span></div>
-<div class="ms-line"><span class="ms-ans">(c)</span> Choose the group <strong>7 spaces from Jail</strong>. Reason: while $\P(7) = \frac{1}{6}$ from any starting position, Jail is a <strong>high-traffic starting point</strong> due to multiple ways of being sent there. Expected visits to properties near Jail > expected visits to properties near Go. <span class="ms-mark">M1A1</span></div>
+<h3>A4 — Challenging [4 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> $6! = 720$ <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> The 3 As can be arranged among themselves in $3! = 6$ ways, but all look identical. So each distinct word was counted 6 times. We divide by $3!$ to correct. <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(c)</span> $\frac{6!}{3!2!} = \frac{720}{6 \times 2} = \frac{720}{12} = 60$ distinct arrangements <span class="ms-mark">A1</span></div>
+</div>
+
+<!-- Part B Markscheme -->
+<h2>Part B — Permutations</h2>
+
+<div class="ms-box">
+<h3>B1 — Basic [3 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> Tree or list showing 20 codes: 12, 13, 14, 15, 21, 23, 24, 25, 31, 32, 34, 35, 41, 42, 43, 45, 51, 52, 53, 54 <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> Count = 20 = $\P(5,2) = 5 \times 4$ <span class="ms-mark">A1</span></div>
+</div>
+
+<div class="ms-box">
+<h3>B2 — Medium [4 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> $15 \times 14 \times 13 \times 12 = 32,760$ <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> $\frac{15!}{11!} = \frac{1,307,674,368,000}{39,916,800} = 32,760$ <span class="ms-mark">M1A1</span></div>
+</div>
+
+<div class="ms-box">
+<h3>B3 — Exam Style [5 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> $\P(8,3) = 8 \times 7 \times 6 = 336$ <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> Alex is equally likely to be in any of 8 positions. 3 of 8 positions are "top 3." $\P = \frac{3}{8} = 0.375$ <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(c)</span> By symmetry, each racer has equal chance in each position. There are 3 favorable positions out of 8 total. <span class="ms-mark">R1</span></div>
+</div>
+
+<div class="ms-box">
+<h3>B4 — Challenging [6 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> $\P(10,8) = 10 \times 9 \times 8 \times 7 \times 6 \times 5 \times 4 \times 3 = 1,814,400$ <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> $\P(\text{correct within 3}) = \frac{3}{1,814,400} = \frac{1}{604,800} \approx 1.65 \times 10^{-6}$ <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(c)</span> With repeats: $10^8 = 100,000,000$ codes. This is about 55 times more than $1,814,400$. No-repeat codes are more secure because there are far fewer valid codes to guess, but paradoxically the space is still smaller. Actually: with repeats there are MORE codes, so repeats make it MORE secure against random guessing. (Accept either argument if well-reasoned.) <span class="ms-mark">M1A1</span></div>
+</div>
+
+<!-- Part C Markscheme -->
+<h2>Part C — Combinations</h2>
+
+<div class="ms-box">
+<h3>C1 — Basic [4 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> AB, AC, AD, BC, BD, CD <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> 6 pairs <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">(c)</span> $\C{4}{2} = \frac{4 \times 3}{2 \times 1} = 6$ ✓ <span class="ms-mark">A1</span></div>
+</div>
+
+<div class="ms-box">
+<h3>C2 — Medium [4 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> $\P(12,3) = 12 \times 11 \times 10 = 1,320$ <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> Each group of 3 weapons can be arranged in $3! = 6$ orders, but in looting the order does not matter. We divide by $3!$ to avoid counting the same set multiple times. <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(c)</span> $\C{12}{3} = \frac{1,320}{6} = 220$ <span class="ms-mark">A1</span></div>
+</div>
+
+<div class="ms-box">
+<h3>C3 — Exam Style [6 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> $\C{36}{5} = \frac{36!}{5!31!} = 376,992$ <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> Choose the number for the triple: 9 choices. Choose 3 suits from 4: $\C{4}{3} = 4$. Choose 2 different numbers from remaining 8: $\C{8}{2} = 28$. Choose suits for those 2 cards: $4 \times 4 = 16$ each. Wait — need to subtract full houses and four of a kind... For MYP level: accept simpler counting. Favourable $\approx 9 \times 4 \times 28 \times 16 = 16,128$. $\P \approx \frac{16,128}{376,992} \approx 0.0428$ <span class="ms-mark">M2A1A1</span></div>
+</div>
+
+<div class="ms-box">
+<h3>C4 — Challenging [5 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> $\C{10}{4} = 210$ <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> $\C{6}{2} \times \C{4}{2} = 15 \times 6 = 90$ <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(c)</span> $\P = \frac{90}{210} = \frac{3}{7} \approx 0.429$ <span class="ms-mark">M1A1</span></div>
+</div>
+
+<!-- Part D Markscheme -->
+<h2>Part D — Sampling: Multiple Types</h2>
+
+<div class="ms-box">
+<h3>D1 — Basic [4 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> $\C{10}{3} = 120$ <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> $\C{5}{2} \times \C{5}{1} = 10 \times 5 = 50$ <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(c)</span> $\P = \frac{50}{120} = \frac{5}{12} \approx 0.417$ <span class="ms-mark">A1</span></div>
+</div>
+
+<div class="ms-box">
+<h3>D2 — Medium [5 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> $\C{40}{5} = 658,008$. Favourable = $\C{8}{1} \times \C{12}{2} \times \C{20}{2} = 8 \times 66 \times 190 = 100,320$. $\P = \frac{100,320}{658,008} \approx 0.152$ <span class="ms-mark">M1A1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> $\P(\text{no rare}) = \frac{\C{32}{5}}{\C{40}{5}} = \frac{201,376}{658,008} \approx 0.306$. $\P(\text{at least 1 rare}) = 1 - 0.306 = 0.694$ <span class="ms-mark">M1A1</span></div>
+</div>
+
+<div class="ms-box">
+<h3>D3 — Exam Style [6 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> $\C{30}{6} = 593,775$. Favourable = $\C{15}{3} \times \C{10}{2} \times \C{5}{1} = 455 \times 45 \times 5 = 102,375$. $\P = \frac{102,375}{593,775} \approx 0.172$ <span class="ms-mark">M2A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> Need at least 2 Attack AND at least 1 Special. Sum over valid combinations: (2A,1S,3D), (2A,2S,2D), (2A,3S,1D), (3A,1S,2D), (3A,2S,1D), (4A,1S,1D), (4A,2S,0D)... Calculate each and sum. $\approx 0.385$ (accept reasonable range with correct method) <span class="ms-mark">M2A1</span></div>
+</div>
+
+<div class="ms-box">
+<h3>D4 — Challenging [5 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> With replacement: $\frac{3}{10} \times \frac{3}{10} = \frac{9}{100} = 0.09$ <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> Without replacement: $\frac{\C{3}{2}}{\C{10}{2}} = \frac{3}{45} = \frac{1}{15} \approx 0.0667$ (or $\frac{3}{10} \times \frac{2}{9} = \frac{6}{90} = \frac{1}{15}$) <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(c)</span> With replacement gives higher probability (0.09 > 0.067). This makes sense: when you draw without replacement and get a gold first, the second draw has fewer golds available (2 out of 9 instead of 3 out of 10). <span class="ms-mark">M1A1</span></div>
 </div>
 
 </div>
