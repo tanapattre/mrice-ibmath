@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scaffolded Practice: Probability Distributions & Expected Value</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    macros: { P: "\\mathbb{P}", E: "\\mathbb{E}", Var: "\\operatorname{Var}", SD: "\\operatorname{SD}" }
+  },
+  startup: { pageReady: () => MathJax.startup.defaultPageReady() }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-container">
+    <a href="../../index.html" class="site-title">IB Math <span>Resources</span></a>
+    <ul class="nav-links">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../dp-ai/index.html">DP AI SL</a></li>
+      <li><a href="../../myp3/index.html">MYP3</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+<div class="toggle-bar no-print">
+  <button class="toggle-btn active" onclick="showView('student')">Student View</button>
+  <button class="toggle-btn" onclick="showView('teacher')">Teacher View</button>
+</div>
+
+<div id="student-view" class="worksheet-body">
+
+<h1>Scaffolded Practice: Probability Distributions & Expected Value</h1>
+<p class="meta">IB DP Mathematics: AI SL — Probability & Statistics · Syllabus 4.7</p>
+
+<div class="recall-box">
+<h3>🔑 Recall — Probability Distributions</h3>
+<ul>
+  <li><strong>Probability distribution table:</strong> Lists all possible values of $X$ with their probabilities $P(X = x)$</li>
+  <li>Properties: $0 \leq P(X = x) \leq 1$ and $\sum P(X = x) = 1$</li>
+  <li>Expected value: $\displaystyle \E(X) = \sum x \cdot P(X = x)$</li>
+  <li>For combined events: list <strong>all</strong> outcomes from the sample space first, then group by final score</li>
+</ul>
+</div>
+
+<div class="example-box">
+<h3>📘 Worked Example</h3>
+<p>A game is played by tossing a fair coin and rolling a fair six-sided die.</p>
+<ul>
+  <li>If the coin shows <strong>tails</strong>, the score on the die is the final score.</li>
+  <li>If the coin shows <strong>heads</strong>, 2 is added to the score on the die.</li>
+</ul>
+
+<p><span class="step-label">Step 1</span> — List all outcomes:</p>
+<p style="text-align:center;">H1, H2, H3, H4, H5, H6, T1, T2, T3, T4, T5, T6</p>
+
+<p><span class="step-label">Step 2</span> — Map to final scores:</p>
+<table>
+  <tr><th>Outcome</th><td>H1</td><td>H2</td><td>H3</td><td>H4</td><td>H5</td><td>H6</td><td>T1</td><td>T2</td><td>T3</td><td>T4</td><td>T5</td><td>T6</td></tr>
+  <tr><th>Score</th><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+</table>
+
+<p><span class="step-label">Step 3</span> — Build the probability distribution table:</p>
+<table>
+  <tr><th>Score $x$</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+  <tr><th>$P(X = x)$</th><td>$\frac{1}{12}$</td><td>$\frac{1}{12}$</td><td>$\frac{2}{12}$</td><td>$\frac{2}{12}$</td><td>$\frac{2}{12}$</td><td>$\frac{2}{12}$</td><td>$\frac{1}{12}$</td><td>$\frac{1}{12}$</td></tr>
+</table>
+<p style="text-align:center; font-size:0.9rem; color:#666;">Check: $\frac{1+1+2+2+2+2+1+1}{12} = 1$ ✓</p>
+<p style="text-align:center; font-size:0.9rem; color:#666;">Note: Scores 3, 4, 5, 6 each have <strong>two paths</strong> (e.g., score 3 = H1 <strong>or</strong> T3)</p>
+
+<p><span class="step-label">Step 4</span> — Calculate expected value:</p>
+$$\E(X) = 1 \times \frac{1}{12} + 2 \times \frac{1}{12} + 3 \times \frac{2}{12} + 4 \times \frac{2}{12} + 5 \times \frac{2}{12} + 6 \times \frac{2}{12} + 7 \times \frac{1}{12} + 8 \times \frac{1}{12}$$
+$$\E(X) = \frac{1 + 2 + 6 + 8 + 10 + 12 + 7 + 8}{12} = \frac{54}{12} = 4.5$$
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 1 — Basic</span><span class="q-marks">[4 marks]</span></div>
+  <p>A fair coin is tossed. If it shows <strong>heads</strong>, the score is $2 \times$ (the number on a rolled die). If it shows <strong>tails</strong>, the score is just the number on the die.</p>
+  <p><strong>(a)</strong> <strong>Complete</strong> the probability distribution table for the final score. <strong>(3 marks)</strong></p>
+  <table>
+    <tr><th>Score $x$</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><th>$P(X = x)$</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <p><strong>(b)</strong> <strong>Find</strong> $\P(X = 6)$. <strong>(1 mark)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 2 — Medium</span><span class="q-marks">[5 marks]</span></div>
+  <p>A spinner has values 1, 2, 3, 4 with equal probability. A fair coin is tossed.</p>
+  <ul>
+    <li>If <strong>heads</strong>: final score = spinner value</li>
+    <li>If <strong>tails</strong>: final score = spinner value + 2</li>
+  </ul>
+  <p><strong>(a)</strong> <strong>Complete</strong> the probability distribution table for the final score. <strong>(3 marks)</strong></p>
+  <p><strong>(b)</strong> <strong>Find</strong> $\P(X = 5)$. <strong>(1 mark)</strong></p>
+  <p><strong>(c)</strong> <strong>Calculate</strong> $\E(X)$. <strong>(1 mark)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 3 — Exam Style</span><span class="q-marks">[6 marks]</span></div>
+  <p>Two fair dice are rolled.</p>
+  <ul>
+    <li>If the sum is <strong>even</strong>: score = sum</li>
+    <li>If the sum is <strong>odd</strong>: score = sum + 3</li>
+  </ul>
+  <p><strong>(a)</strong> <strong>Complete</strong> the probability distribution table showing possible scores and their probabilities. <strong>(3 marks)</strong></p>
+  <p><strong>(b)</strong> <strong>Find</strong> $\P(X = 9)$. <strong>(1 mark)</strong></p>
+  <p><strong>(c)</strong> <strong>Calculate</strong> $\E(X)$. <strong>(2 marks)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 4 — Challenging</span><span class="q-marks">[5 marks]</span></div>
+  <p>A game costs \$2 to play. A fair die is rolled and the player wins $\$ \times$ (the number on the die).</p>
+  <p><strong>(a)</strong> Let $Y$ be the <strong>net profit</strong>. <strong>Complete</strong> the probability distribution table for $Y$. <strong>(2 marks)</strong></p>
+  <p><strong>(b)</strong> <strong>Calculate</strong> $\E(Y)$. <strong>(2 marks)</strong></p>
+  <p><strong>(c)</strong> <strong>Determine</strong> whether the game is fair. Justify your answer. <strong>(1 mark)</strong></p>
+</div>
+
+</div>
+
+<div id="teacher-view" class="worksheet-body hidden">
+
+<h1>Scaffolded Practice: Probability Distributions & Expected Value</h1>
+<p class="meta">IB DP Mathematics: AI SL — Markscheme</p>
+
+<h2>Markscheme</h2>
+
+<div class="ms-box">
+<h3>Question 1 — Basic [4 marks]</h3>
+<div class="ms-line"><span class="ms-mark">M1</span> — for listing all 12 outcomes and mapping to scores</div>
+<div class="ms-line"><span class="ms-ans">Scores:</span> Heads → 2, 4, 6, 8, 10, 12; Tails → 1, 2, 3, 4, 5, 6</div>
+<div class="ms-line"><span class="ms-mark">A1</span> — for correct probability distribution table:</div>
+<table class="marks-table">
+  <tr><th>Score $x$</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>8</td><td>10</td><td>12</td></tr>
+  <tr><th>$P(X=x)$</th><td>$\frac{1}{12}$</td><td>$\frac{2}{12}$</td><td>$\frac{1}{12}$</td><td>$\frac{2}{12}$</td><td>$\frac{1}{12}$</td><td>$\frac{2}{12}$</td><td>$\frac{1}{12}$</td><td>$\frac{1}{12}$</td><td>$\frac{1}{12}$</td></tr>
+</table>
+<div class="ms-line">Check: $\frac{1+2+1+2+1+2+1+1+1}{12} = 1$ ✓</div>
+<div class="ms-line"><span class="ms-mark">A1</span> — for correct table structure (all scores listed, probabilities sum to 1)</div>
+<div class="ms-line"><span class="ms-ans">(b)</span> $\P(X = 6) = \frac{2}{12} = \frac{1}{6} \approx 0.167$ <span class="ms-mark">A1</span></div>
+</div>
+
+<div class="ms-box">
+<h3>Question 2 — Medium [5 marks]</h3>
+<div class="ms-line"><span class="ms-mark">M1</span> — for identifying all outcomes and their probabilities</div>
+<div class="ms-line"><span class="ms-mark">A1</span> — for correct distribution table:</div>
+<table class="marks-table">
+  <tr><th>Score $x$</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+  <tr><th>$P(X=x)$</th><td>$\frac{1}{8}$</td><td>$\frac{1}{8}$</td><td>$\frac{1}{8}$</td><td>$\frac{1}{8}$</td><td>$\frac{2}{8}$</td><td>$\frac{2}{8}$</td></tr>
+</table>
+<div class="ms-line"><span class="ms-ans">(b)</span> $\P(X = 5) = \frac{2}{8} = \frac{1}{4} = 0.25$ <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-mark">M1</span> — for substituting into $\E(X) = \sum x \cdot P(X = x)$</div>
+<div class="ms-line"><span class="ms-ans">$\E(X)$</span> $= 1 \times \frac{1}{8} + 2 \times \frac{1}{8} + 3 \times \frac{1}{8} + 4 \times \frac{1}{8} + 5 \times \frac{2}{8} + 6 \times \frac{2}{8} = \frac{32}{8} = 4$ <span class="ms-mark">A1</span></div>
+</div>
+
+<div class="ms-box">
+<h3>Question 3 — Exam Style [6 marks]</h3>
+<div class="ms-line"><span class="ms-mark">M1</span> — for listing all 36 outcomes and grouping by score</div>
+<div class="ms-line"><span class="ms-mark">A1</span> — for correct distribution table (scores 2–15 with correct probabilities)</div>
+<div class="ms-line"><span class="ms-ans">(b)</span> $\P(X = 9) = \frac{6}{36} = \frac{1}{6} \approx 0.167$ <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-mark">M1</span> — for correct substitution into expected value formula</div>
+<div class="ms-line"><span class="ms-ans">$\E(X)$</span> $= 2 \times \frac{1}{36} + 4 \times \frac{3}{36} + \ldots + 15 \times \frac{3}{36} = \frac{432}{36} = 12$ <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-mark">A1</span> — for correct final answer with 3 significant figures: $\E(X) = 12.0$</div>
+</div>
+
+<div class="ms-box">
+<h3>Question 4 — Challenging [5 marks]</h3>
+<div class="ms-line"><span class="ms-mark">M1</span> — for defining net profit $Y = \text{winnings} - 2$</div>
+<div class="ms-line"><span class="ms-mark">A1</span> — for correct distribution table for $Y$:</div>
+<table class="marks-table">
+  <tr><th>Profit $y$</th><td>$-1$</td><td>$0$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td></tr>
+  <tr><th>$P(Y=y)$</th><td>$\frac{1}{6}$</td><td>$\frac{1}{6}$</td><td>$\frac{1}{6}$</td><td>$\frac{1}{6}$</td><td>$\frac{1}{6}$</td><td>$\frac{1}{6}$</td></tr>
+</table>
+<div class="ms-line"><span class="ms-mark">M1</span> — for $\E(Y) = (-1) \times \frac{1}{6} + 0 \times \frac{1}{6} + 1 \times \frac{1}{6} + 2 \times \frac{1}{6} + 3 \times \frac{1}{6} + 4 \times \frac{1}{6}$</div>
+<div class="ms-line"><span class="ms-ans">$\E(Y)$</span> $= \frac{9}{6} = 1.5$ <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-mark">R1</span> — Game is <strong>not fair</strong> because $\E(Y) > 0$ (player expects to profit on average). A fair game would have $\E(Y) = 0$.</div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+function showView(view) {
+  document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('student-view').classList.toggle('hidden', view !== 'student');
+  document.getElementById('teacher-view').classList.toggle('hidden', view !== 'teacher');
+}
+</script>
+
+<footer class="site-footer">
+  <p>IB DP Mathematics: AI SL — Probability & Statistics</p>
+</footer>
+
+</body>
+</html>

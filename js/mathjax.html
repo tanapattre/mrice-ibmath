@@ -1,0 +1,18 @@
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    macros: {
+      P: "\\mathbb{P}",
+      E: "\\mathbb{E}",
+      Var: "\\operatorname{Var}",
+      SD: "\\operatorname{SD}"
+    }
+  },
+  startup: {
+    pageReady: () => MathJax.startup.defaultPageReady()
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>

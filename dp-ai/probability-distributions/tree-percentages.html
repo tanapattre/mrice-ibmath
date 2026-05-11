@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scaffolded Practice: Tree Diagrams — Percentages</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    macros: { P: "\\mathbb{P}", E: "\\mathbb{E}", Var: "\\operatorname{Var}", SD: "\\operatorname{SD}" }
+  },
+  startup: { pageReady: () => MathJax.startup.defaultPageReady() }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-container">
+    <a href="../../index.html" class="site-title">IB Math <span>Resources</span></a>
+    <ul class="nav-links">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../dp-ai/index.html">DP AI SL</a></li>
+      <li><a href="../../myp3/index.html">MYP3</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+<div class="toggle-bar no-print">
+  <button class="toggle-btn active" onclick="showView('student')">Student View</button>
+  <button class="toggle-btn" onclick="showView('teacher')">Teacher View</button>
+</div>
+
+<div id="student-view" class="worksheet-body">
+
+<h1>Scaffolded Practice: Tree Diagrams — Percentages</h1>
+<p class="meta">IB DP Mathematics: AI SL — Probability &amp; Statistics · Syllabus 4.5</p>
+
+<div class="recall-box">
+<h3>🔑 Recall — Tree Diagrams with Percentages</h3>
+<ul>
+  <li><strong>Tree diagrams with percentages:</strong> Branches show probabilities as decimals or percentages.</li>
+  <li><strong>$\P(A \cap B)$:</strong> $= \P(A) \times \P(B|A)$ — multiply along branches.</li>
+  <li><strong>Law of Total Probability:</strong> $\P(B) = \P(A \cap B) + \P(A' \cap B)$ — add different paths.</li>
+  <li><strong>Conditional probability:</strong> $\displaystyle \P(A|B) = \frac{\P(A \cap B)}{\P(B)}$</li>
+  <li><strong>Complement:</strong> $\P(A') = 1 - \P(A)$</li>
+</ul>
+</div>
+
+<div class="example-box">
+<h3>📘 Worked Example</h3>
+<p>In a school, <strong>40%</strong> of students play sport. Of those who play sport, <strong>70%</strong> pass math. Of those who don't play sport, <strong>50%</strong> pass math.</p>
+
+<p><span class="step-label">Step 1</span> — Draw the tree diagram:</p>
+<pre style="text-align:center; font-family:monospace; margin:1rem 0;">
+                    [Start]
+                   /       \
+              0.40 /         \ 0.60
+                 /           \
+           [Sport]        [No Sport]
+            /   \            /   \
+       0.70 /     \ 0.30 0.50 /     \ 0.50
+          /       \        /       \
+      [Pass]  [Fail]   [Pass]  [Fail]
+      0.28    0.12     0.30    0.30
+</pre>
+
+<p><span class="step-label">Step 2</span> — $\P(\text{Sport} \cap \text{Pass})$:</p>
+<p style="text-align:center;">$\P(\text{Sport} \cap \text{Pass}) = 0.40 \times 0.70 = 0.28$</p>
+
+<p><span class="step-label">Step 3</span> — $\P(\text{No Sport} \cap \text{Pass})$:</p>
+<p style="text-align:center;">$\P(\text{No Sport} \cap \text{Pass}) = 0.60 \times 0.50 = 0.30$</p>
+
+<p><span class="step-label">Step 4</span> — $\P(\text{Pass})$:</p>
+<p style="text-align:center;">$\P(\text{Pass}) = 0.28 + 0.30 = 0.58$</p>
+
+<p><span class="step-label">Step 5</span> — $\P(\text{Sport} | \text{Pass})$:</p>
+<p style="text-align:center;">$\P(\text{Sport} | \text{Pass}) = \frac{0.28}{0.58} = 0.483$ (3 sf)</p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 1 — Basic</span><span class="q-marks">[4 marks]</span></div>
+  <p>In a city, <strong>25%</strong> of people own a car. Of car owners, <strong>80%</strong> have a driving license. Of non-owners, <strong>60%</strong> have a driving license.</p>
+  <p><strong>(a)</strong> <strong>Complete</strong> the tree diagram. <strong>(2 marks)</strong></p>
+  <p><strong>(b)</strong> <strong>Find</strong> $\P(\text{license})$. <strong>(2 marks)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 2 — Medium</span><span class="q-marks">[5 marks]</span></div>
+  <p>In a town, <strong>45%</strong> of households own a dog. Of dog owners, <strong>90%</strong> have their dog vaccinated. It is known that <strong>72%</strong> of all households have a vaccinated dog.</p>
+  <p><strong>(a)</strong> <strong>Complete</strong> the tree diagram. <strong>(1 mark)</strong></p>
+  <p><strong>(b)</strong> <strong>Find</strong> $\P(\text{vaccinated} | \text{not dog owner})$. <strong>(2 marks)</strong></p>
+  <p><strong>(c)</strong> A household is chosen at random and has a vaccinated dog. <strong>Find</strong> the probability they do not own a dog. <strong>(2 marks)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 3 — Exam Style</span><span class="q-marks">[6 marks]</span></div>
+  <p>In a country, <strong>28%</strong> of adults travel abroad each year. Of those who travel, <strong>65%</strong> speak two or more languages. It is known that <strong>52%</strong> of all adults speak two or more languages.</p>
+  <p><strong>(a)</strong> <strong>Find</strong> $\P(\text{speaks 2+ languages} | \text{does not travel})$. <strong>(3 marks)</strong></p>
+  <p><strong>(b)</strong> Given that an adult speaks two or more languages, <strong>find</strong> the probability they travel abroad. <strong>(3 marks)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 4 — Challenging</span><span class="q-marks">[6 marks]</span></div>
+  <p>A medical test for a disease has the following properties:</p>
+  <ul>
+    <li>$\P(\text{disease}) = 0.02$</li>
+    <li>$\P(\text{positive} | \text{disease}) = 0.95$</li>
+    <li>$\P(\text{positive} | \text{no disease}) = 0.08$</li>
+  </ul>
+  <p><strong>(a)</strong> <strong>Find</strong> $\P(\text{positive})$. <strong>(2 marks)</strong></p>
+  <p><strong>(b)</strong> Given a positive test result, <strong>find</strong> $\P(\text{disease} | \text{positive})$. <strong>(2 marks)</strong></p>
+  <p><strong>(c)</strong> Given a negative test result, <strong>find</strong> $\P(\text{no disease} | \text{negative})$. <strong>(2 marks)</strong></p>
+</div>
+
+</div>
+
+<div id="teacher-view" class="worksheet-body hidden">
+
+<h1>Scaffolded Practice: Tree Diagrams — Percentages</h1>
+<p class="meta">IB DP Mathematics: AI SL — Markscheme</p>
+
+<h2>Markscheme</h2>
+
+<div class="ms-box">
+<h3>Question 1 — Basic [4 marks]</h3>
+<div class="ms-line"><span class="ms-mark">M1</span> — for correct tree structure with 0.25 and 0.75 on first branches</div>
+<div class="ms-line"><span class="ms-ans">(a)</span> Second branches: Car owner → License 0.80, No license 0.20; Non-owner → License 0.60, No license 0.40 <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> $\P(\text{license}) = 0.25 \times 0.80 + 0.75 \times 0.60 = 0.20 + 0.45 = 0.65$ <span class="ms-mark">M1A1</span></div>
+</div>
+
+<div class="ms-box">
+<h3>Question 2 — Medium [5 marks]</h3>
+<div class="ms-line"><span class="ms-mark">A1</span> — for correct tree with all probabilities</div>
+<div class="ms-line"><span class="ms-ans">(b)</span> $0.45 \times 0.90 + 0.55 \times b = 0.72$ → $0.405 + 0.55b = 0.72$ → $b = \frac{0.315}{0.55} = 0.573$ (3 sf) <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(c)</span> $\P(\text{no dog} | \text{vacc}) = \frac{0.55 \times 0.573}{0.72} = \frac{0.315}{0.72} = 0.438$ <span class="ms-mark">M1A1</span></div>
+</div>
+
+<div class="ms-box">
+<h3>Question 3 — Exam Style [6 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> $0.28 \times 0.65 + 0.72 \times b = 0.52$ → $0.182 + 0.72b = 0.52$ → $b = \frac{0.338}{0.72} = 0.469$ (3 sf) <span class="ms-mark">M1A1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> $\P(\text{travel} | \text{2+ languages}) = \frac{0.28 \times 0.65}{0.52} = \frac{0.182}{0.52} = 0.350$ (3 sf) <span class="ms-mark">M1A1A1</span></div>
+</div>
+
+<div class="ms-box">
+<h3>Question 4 — Challenging [6 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> $\P(\text{positive}) = 0.02 \times 0.95 + 0.98 \times 0.08 = 0.019 + 0.0784 = 0.0974$ <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> $\P(\text{disease} | \text{positive}) = \frac{0.019}{0.0974} = 0.195$ (3 sf) <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(c)</span> $\P(\text{negative}) = 1 - 0.0974 = 0.9026$; $\P(\text{no disease} | \text{negative}) = \frac{0.98 \times 0.92}{0.9026} = \frac{0.9016}{0.9026} = 0.999$ (3 sf) <span class="ms-mark">M1A1</span></div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+function showView(view) {
+  document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('student-view').classList.toggle('hidden', view !== 'student');
+  document.getElementById('teacher-view').classList.toggle('hidden', view !== 'teacher');
+}
+</script>
+
+<footer class="site-footer">
+  <p>IB DP Mathematics: AI SL — Probability &amp; Statistics</p>
+</footer>
+
+</body>
+</html>

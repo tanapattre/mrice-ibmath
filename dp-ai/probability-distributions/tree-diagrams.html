@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scaffolded Practice: Tree Diagrams — Conditional Probability</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    macros: { P: "\\mathbb{P}", E: "\\mathbb{E}", Var: "\\operatorname{Var}", SD: "\\operatorname{SD}" }
+  },
+  startup: { pageReady: () => MathJax.startup.defaultPageReady() }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-container">
+    <a href="../../index.html" class="site-title">IB Math <span>Resources</span></a>
+    <ul class="nav-links">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../dp-ai/index.html">DP AI SL</a></li>
+      <li><a href="../../myp3/index.html">MYP3</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+<div class="toggle-bar no-print">
+  <button class="toggle-btn active" onclick="showView('student')">Student View</button>
+  <button class="toggle-btn" onclick="showView('teacher')">Teacher View</button>
+</div>
+
+<div id="student-view" class="worksheet-body">
+
+<h1>Scaffolded Practice: Tree Diagrams — Conditional Probability</h1>
+<p class="meta">IB DP Mathematics: AI SL — Probability &amp; Statistics · Syllabus 4.5</p>
+
+<div class="recall-box">
+<h3>🔑 Recall — Tree Diagrams &amp; Conditional Probability</h3>
+<ul>
+  <li><strong>Tree diagram:</strong> First branch = first event; second branch = second event.</li>
+  <li><strong>Without replacement:</strong> Second branch probabilities <strong>change</strong> after the first draw.</li>
+  <li><strong>$\P(A \text{ and } B)$:</strong> Multiply along branches. $\P(A) \times \P(B|A)$</li>
+  <li><strong>$\P(\text{same colour})$:</strong> Add different paths. $\P(BB) + P(B_k B_k)$</li>
+  <li><strong>Conditional probability:</strong> $\displaystyle \P(A|B) = \frac{\P(A \text{ and } B)}{\P(B)}$</li>
+</ul>
+</div>
+
+<div class="example-box">
+<h3>📘 Worked Example</h3>
+<p>A bag contains <strong>2 red</strong> and <strong>3 blue</strong> counters. Two counters are drawn <strong>without replacement</strong>.</p>
+
+<p><span class="step-label">Step 1</span> — First draw:</p>
+<p style="text-align:center;">$\P(\text{Red}) = \frac{2}{5}$ &nbsp;&nbsp; $\P(\text{Blue}) = \frac{3}{5}$</p>
+
+<p><span class="step-label">Step 2</span> — Second draw (if Red first):</p>
+<p style="text-align:center;">$\P(\text{Red}) = \frac{1}{4}$ &nbsp;&nbsp; $\P(\text{Blue}) = \frac{3}{4}$</p>
+
+<p><span class="step-label">Step 3</span> — Second draw (if Blue first):</p>
+<p style="text-align:center;">$\P(\text{Red}) = \frac{2}{4}$ &nbsp;&nbsp; $\P(\text{Blue}) = \frac{2}{4}$</p>
+
+<p><span class="step-label">Step 4</span> — Complete tree diagram:</p>
+<pre style="text-align:center; font-family:monospace; margin:1rem 0;">
+                    [Start]
+                   /       \
+              2/5 /         \ 3/5
+                 /           \
+              [Red]        [Blue]
+              /   \          /   \
+         1/4 /     \ 3/4 2/4 /     \ 2/4
+            /       \      /       \
+        [Red]   [Blue] [Red]   [Blue]
+         RR      RB     BR      BB
+       2/20    6/20   6/20    6/20
+</pre>
+
+<p><span class="step-label">Step 5</span> — $\P(\text{both same colour})$:</p>
+<p style="text-align:center;">$\P(RR) + \P(BB) = \frac{2}{5} \times \frac{1}{4} + \frac{3}{5} \times \frac{2}{4} = \frac{2}{20} + \frac{6}{20} = \frac{8}{20} = \frac{2}{5}$</p>
+
+<p><span class="step-label">Step 6</span> — $\P(\text{Red} | \text{same colour})$:</p>
+<p style="text-align:center;">$\P(\text{Red} | \text{same}) = \frac{\P(RR)}{\P(\text{same})} = \frac{2/20}{8/20} = \frac{2}{8} = \frac{1}{4}$</p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 1 — Basic</span><span class="q-marks">[3 marks]</span></div>
+  <p>A bag contains <strong>4 green</strong> and <strong>2 yellow</strong> marbles. Two marbles are drawn <strong>without replacement</strong>.</p>
+  <p><strong>(a)</strong> <strong>Complete</strong> the tree diagram. <strong>(1 mark)</strong></p>
+  <p><strong>(b)</strong> <strong>Find</strong> $\P(\text{both green})$. <strong>(2 marks)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 2 — Medium</span><span class="q-marks">[5 marks]</span></div>
+  <p>A drawer contains <strong>5 black</strong> and <strong>3 white</strong> socks. Two socks are taken <strong>without replacement</strong>.</p>
+  <p><strong>(a)</strong> <strong>Complete</strong> the tree diagram. <strong>(1 mark)</strong></p>
+  <p><strong>(b)</strong> <strong>Find</strong> the probability that both socks are the same colour. <strong>(2 marks)</strong></p>
+  <p><strong>(c)</strong> Given that both socks are the same colour, <strong>find</strong> the probability that they are both black. <strong>(2 marks)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 3 — Exam Style</span><span class="q-marks">[6 marks]</span></div>
+  <p>A class has <strong>6 boys</strong> and <strong>4 girls</strong>. Two students are chosen <strong>without replacement</strong> for a team.</p>
+  <p><strong>(a)</strong> <strong>Complete</strong> the tree diagram. <strong>(1 mark)</strong></p>
+  <p><strong>(b)</strong> <strong>Find</strong> $\P(\text{at least one girl})$. <strong>(2 marks)</strong></p>
+  <p><strong>(c)</strong> Given that at least one girl is chosen, <strong>find</strong> the probability that both are girls. <strong>(3 marks)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 4 — Challenging</span><span class="q-marks">[5 marks]</span></div>
+  <p>A deck of cards has <strong>12 face cards</strong> and <strong>40 non-face cards</strong>. Two cards are drawn <strong>without replacement</strong>.</p>
+  <p><strong>(a)</strong> <strong>Find</strong> $\P(\text{at least one face card})$. <strong>(2 marks)</strong></p>
+  <p><strong>(b)</strong> Given that at least one face card is drawn, <strong>find</strong> $\P(\text{both face cards})$. <strong>(3 marks)</strong></p>
+</div>
+
+</div>
+
+<div id="teacher-view" class="worksheet-body hidden">
+
+<h1>Scaffolded Practice: Tree Diagrams — Conditional Probability</h1>
+<p class="meta">IB DP Mathematics: AI SL — Markscheme</p>
+
+<h2>Markscheme</h2>
+
+<div class="ms-box">
+<h3>Question 1 — Basic [3 marks]</h3>
+<div class="ms-line"><span class="ms-mark">A1</span> — for correct tree: First draw G=4/6, Y=2/6; Second draw (if G) G=3/5, Y=2/5; (if Y) G=4/5, Y=1/5</div>
+<div class="ms-line"><span class="ms-ans">(b)</span> $\P(\text{both green}) = \frac{4}{6} \times \frac{3}{5} = \frac{12}{30} = \frac{2}{5} = 0.4$ <span class="ms-mark">M1A1</span></div>
+</div>
+
+<div class="ms-box">
+<h3>Question 2 — Medium [5 marks]</h3>
+<div class="ms-line"><span class="ms-mark">A1</span> — for correct tree structure with all probabilities</div>
+<div class="ms-line"><span class="ms-ans">(b)</span> $\P(\text{same}) = \frac{5}{8} \times \frac{4}{7} + \frac{3}{8} \times \frac{2}{7} = \frac{20}{56} + \frac{6}{56} = \frac{26}{56} = \frac{13}{28} \approx 0.464$ <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(c)</span> $\P(\text{black} | \text{same}) = \frac{20/56}{26/56} = \frac{20}{26} = \frac{10}{13} \approx 0.769$ <span class="ms-mark">M1A1A1</span></div>
+<div class="ms-line">Note: Award M1 for correct conditional probability formula setup.</div>
+</div>
+
+<div class="ms-box">
+<h3>Question 3 — Exam Style [6 marks]</h3>
+<div class="ms-line"><span class="ms-mark">A1</span> — for correct tree with all probabilities</div>
+<div class="ms-line"><span class="ms-ans">(b)</span> $\P(\text{at least one girl}) = 1 - \P(\text{both boys}) = 1 - \frac{6}{10} \times \frac{5}{9} = 1 - \frac{30}{90} = \frac{60}{90} = \frac{2}{3} \approx 0.667$ <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(c)</span> $\P(\text{both girls} | \text{at least one girl}) = \frac{\P(\text{both girls})}{\P(\text{at least one girl})} = \frac{4/10 \times 3/9}{2/3} = \frac{12/90}{60/90} = \frac{12}{60} = \frac{1}{5} = 0.2$ <span class="ms-mark">M1A1A1</span></div>
+</div>
+
+<div class="ms-box">
+<h3>Question 4 — Challenging [5 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> $\P(\text{at least one face}) = 1 - \P(\text{both non-face}) = 1 - \frac{40}{52} \times \frac{39}{51} = 1 - \frac{1560}{2652} = \frac{1092}{2652} = \frac{91}{221} \approx 0.412$ <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> $\P(\text{both face} | \text{at least one face}) = \frac{12/52 \times 11/51}{1092/2652} = \frac{132/2652}{1092/2652} = \frac{132}{1092} = \frac{11}{91} \approx 0.121$ <span class="ms-mark">M1A1A1</span></div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+function showView(view) {
+  document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('student-view').classList.toggle('hidden', view !== 'student');
+  document.getElementById('teacher-view').classList.toggle('hidden', view !== 'teacher');
+}
+</script>
+
+<footer class="site-footer">
+  <p>IB DP Mathematics: AI SL — Probability &amp; Statistics</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scaffolded Practice: Cumulative Frequency & Box Plots</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    macros: { P: "\\mathbb{P}", E: "\\mathbb{E}", Var: "\\operatorname{Var}", SD: "\\operatorname{SD}" }
+  },
+  startup: { pageReady: () => MathJax.startup.defaultPageReady() }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-container">
+    <a href="../../index.html" class="site-title">IB Math <span>Resources</span></a>
+    <ul class="nav-links">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../dp-ai/index.html">DP AI SL</a></li>
+      <li><a href="../../myp3/index.html">MYP3</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+<div class="toggle-bar no-print">
+  <button class="toggle-btn active" onclick="showView('student')">Student View</button>
+  <button class="toggle-btn" onclick="showView('teacher')">Teacher View</button>
+</div>
+
+<div id="student-view" class="worksheet-body">
+
+<h1>Scaffolded Practice: Cumulative Frequency & Box Plots</h1>
+<p class="meta">IB DP Mathematics: AI SL &mdash; Probability &amp; Statistics &middot; Syllabus 4.6</p>
+
+<div class="recall-box">
+<h3>🔑 Recall &mdash; Cumulative Frequency & Box Plots</h3>
+<ul>
+  <li><strong>Cumulative frequency</strong> is a running total of frequencies.</li>
+  <li><strong>Median</strong> position: $\frac{n}{2}$ on the cumulative frequency axis; read across to the curve, then down to the $x$-axis.</li>
+  <li><strong>Lower quartile (Q1)</strong> position: $\frac{n}{4}$; same method as median.</li>
+  <li><strong>Upper quartile (Q3)</strong> position: $\frac{3n}{4}$; same method as median.</li>
+  <li><strong>IQR</strong> = Q3 &minus; Q1</li>
+  <li><strong>Box plot</strong> shows: minimum, Q1, median, Q3, maximum. Whiskers extend to min/max unless there are outliers.</li>
+</ul>
+</div>
+
+<div class="example-box">
+<h3>📘 Worked Example</h3>
+<p>A food scientist measures the weights of <strong>80 potatoes</strong>. The cumulative frequency curve has the following key points:</p>
+<table>
+  <tr><th>Weight (g)</th><td>50</td><td>100</td><td>150</td><td>200</td><td>250</td><td>300</td></tr>
+  <tr><th>Cumulative frequency</th><td>5</td><td>22</td><td>42</td><td>62</td><td>74</td><td>80</td></tr>
+</table>
+
+<p><span class="step-label">Step 1</span> &mdash; Find the median:</p>
+<p style="text-align:center;">Position = $\frac{80}{2} = 40$ &rarr; Read from CF = 40 across to curve, down to <strong>140 g</strong></p>
+
+<p><span class="step-label">Step 2</span> &mdash; Find Q1 and Q3:</p>
+<p style="text-align:center;">Q1 position = $\frac{80}{4} = 20$ &rarr; <strong>95 g</strong></p>
+<p style="text-align:center;">Q3 position = $\frac{3 \times 80}{4} = 60$ &rarr; <strong>195 g</strong></p>
+<p style="text-align:center;">IQR = $195 - 95 = 100$ g</p>
+
+<p><span class="step-label">Step 3</span> &mdash; Draw the box plot:</p>
+<p>Min = 20 g, Max = 400 g (given). Box plot scale from 0 to 400:</p>
+<pre style="text-align:center; font-family:monospace; margin:1rem 0;">
+  0    50   100   150   200   250   300   350   400
+  |-----[====|=========|====]---------------------|
+       Q1   Median    Q3
+</pre>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 1 &mdash; Basic</span><span class="q-marks">[3 marks]</span></div>
+  <p>Given the following cumulative frequency table for 60 apples:</p>
+  <table>
+    <tr><th>Weight (g)</th><td>100</td><td>120</td><td>140</td><td>160</td><td>180</td><td>200</td></tr>
+    <tr><th>Cumulative frequency</th><td>8</td><td>18</td><td>30</td><td>45</td><td>54</td><td>60</td></tr>
+  </table>
+  <p><strong>(a)</strong> <strong>Find</strong> the median weight. <strong>(1 mark)</strong></p>
+  <p><strong>(b)</strong> <strong>Find</strong> the lower quartile. <strong>(1 mark)</strong></p>
+  <p><strong>(c)</strong> <strong>Find</strong> the upper quartile. <strong>(1 mark)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 2 &mdash; Medium</span><span class="q-marks">[4 marks]</span></div>
+  <p>The cumulative frequency curve for <strong>760 potatoes</strong> passes through these points:</p>
+  <table>
+    <tr><th>Weight (g)</th><td>50</td><td>100</td><td>150</td><td>200</td><td>250</td><td>300</td><td>350</td><td>400</td></tr>
+    <tr><th>Cumulative frequency</th><td>30</td><td>120</td><td>280</td><td>420</td><td>560</td><td>680</td><td>740</td><td>760</td></tr>
+  </table>
+  <p><strong>(a)</strong> <strong>Find</strong> the number of potatoes with weight <strong>more than 200 g</strong>. <strong>(2 marks)</strong></p>
+  <p><strong>(b)</strong> <strong>Find</strong> the median and interquartile range. <strong>(2 marks)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 3 &mdash; Exam Style</span><span class="q-marks">[5 marks]</span></div>
+  <p>The cumulative frequency curve shows the weights of <strong>200 apples</strong> from an orchard.</p>
+  <table>
+    <tr><th>Weight (g)</th><td>80</td><td>120</td><td>160</td><td>200</td><td>240</td><td>280</td></tr>
+    <tr><th>Cumulative frequency</th><td>12</td><td>48</td><td>100</td><td>152</td><td>184</td><td>200</td></tr>
+  </table>
+  <p><strong>(a)</strong> <strong>Find</strong> the number of apples weighing <strong>more than 150 g</strong>. <strong>(2 marks)</strong></p>
+  <p><strong>(b)</strong> <strong>Find</strong> the median, lower quartile, and upper quartile. <strong>(2 marks)</strong></p>
+  <p><strong>(c)</strong> Given the smallest apple is 80 g and the largest is 280 g, <strong>draw</strong> a box-and-whisker diagram on the scale below. Assume there are no outliers.</p>
+  <pre style="font-family:monospace; margin:0.5rem 0;">
+0    50   100   150   200   250   300
+|----|----|-----|-----|-----|-----|
+  </pre>
+  <p><strong>(1 mark)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 4 &mdash; Challenging</span><span class="q-marks">[4 marks]</span></div>
+  <p>The cumulative frequency curve for a data set shows:</p>
+  <p>Min = 15, Q1 = 35, Median = 55, Q3 = 80, Max = 180</p>
+  <p><strong>(a)</strong> <strong>Calculate</strong> the interquartile range. <strong>(1 mark)</strong></p>
+  <p><strong>(b)</strong> An outlier is defined as any value <strong>less than</strong> Q1 &minus; 1.5 &times; IQR or <strong>greater than</strong> Q3 + 1.5 &times; IQR. <strong>Determine</strong> whether the minimum or maximum are outliers. <strong>(2 marks)</strong></p>
+  <p><strong>(c)</strong> If there are outliers, <strong>draw</strong> a revised box plot showing them as individual points. <strong>(1 mark)</strong></p>
+</div>
+
+</div>
+
+<div id="teacher-view" class="worksheet-body hidden">
+
+<h1>Scaffolded Practice: Cumulative Frequency & Box Plots</h1>
+<p class="meta">IB DP Mathematics: AI SL &mdash; Markscheme</p>
+
+<h2>Markscheme</h2>
+
+<div class="ms-box">
+<h3>Question 1 &mdash; Basic [3 marks]</h3>
+<div class="ms-line"><span class="ms-mark">A1</span> &mdash; Median position = 30 &rarr; <strong>140 g</strong></div>
+<div class="ms-line"><span class="ms-mark">A1</span> &mdash; Q1 position = 15 &rarr; <strong>120 g</strong></div>
+<div class="ms-line"><span class="ms-mark">A1</span> &mdash; Q3 position = 45 &rarr; <strong>160 g</strong></div>
+</div>
+
+<div class="ms-box">
+<h3>Question 2 &mdash; Medium [4 marks]</h3>
+<div class="ms-line"><span class="ms-mark">M1</span> &mdash; for recognizing $760 - 420 = 340$</div>
+<div class="ms-line"><span class="ms-ans">(a)</span> <strong>340 potatoes</strong> weigh more than 200 g <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-mark">A1</span> &mdash; Median = <strong>190 g</strong> (accept 185&ndash;195)</div>
+<div class="ms-line"><span class="ms-ans">(b)</span> Q1 = <strong>135&ndash;140 g</strong>, Q3 = <strong>242&ndash;247 g</strong>, IQR = <strong>102&ndash;112 g</strong> <span class="ms-mark">A1</span></div>
+</div>
+
+<div class="ms-box">
+<h3>Question 3 &mdash; Exam Style [5 marks]</h3>
+<div class="ms-line"><span class="ms-mark">M1</span> &mdash; for $200 - 100 = 100$ or equivalent</div>
+<div class="ms-line"><span class="ms-ans">(a)</span> <strong>100 apples</strong> weigh more than 150 g <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-mark">A1</span> &mdash; Median = <strong>160 g</strong>, Q1 = <strong>120 g</strong>, Q3 = <strong>200 g</strong></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> IQR = <strong>80 g</strong> <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-mark">M1A1</span> &mdash; Box plot with box and whiskers; M1 for structure, A1 for all statistics in correct positions</div>
+</div>
+
+<div class="ms-box">
+<h3>Question 4 &mdash; Challenging [4 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> IQR = $80 - 35 = 45$ <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> Lower fence = $35 - 1.5(45) = 35 - 67.5 = -32.5$</div>
+<div class="ms-line">Upper fence = $80 + 1.5(45) = 80 + 67.5 = 147.5$</div>
+<div class="ms-line">Min = 15 > &minus;32.5, so <strong>not an outlier</strong>. Max = 180 > 147.5, so <strong>is an outlier</strong>. <span class="ms-mark">M1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(c)</span> Box plot with whisker to ~147.5 and max as isolated point at 180 <span class="ms-mark">A1</span></div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+function showView(view) {
+  document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('student-view').classList.toggle('hidden', view !== 'student');
+  document.getElementById('teacher-view').classList.toggle('hidden', view !== 'teacher');
+}
+</script>
+
+<footer class="site-footer">
+  <p>IB DP Mathematics: AI SL &mdash; Probability &amp; Statistics</p>
+</footer>
+
+</body>
+</html>

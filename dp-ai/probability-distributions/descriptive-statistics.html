@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scaffolded Practice: Descriptive Statistics</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    macros: { P: "\\mathbb{P}", E: "\\mathbb{E}", Var: "\\operatorname{Var}", SD: "\\operatorname{SD}" }
+  },
+  startup: { pageReady: () => MathJax.startup.defaultPageReady() }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-container">
+    <a href="../../index.html" class="site-title">IB Math <span>Resources</span></a>
+    <ul class="nav-links">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../dp-ai/index.html">DP AI SL</a></li>
+      <li><a href="../../myp3/index.html">MYP3</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+<div class="toggle-bar no-print">
+  <button class="toggle-btn active" onclick="showView('student')">Student View</button>
+  <button class="toggle-btn" onclick="showView('teacher')">Teacher View</button>
+</div>
+
+<div id="student-view" class="worksheet-body">
+
+<h1>Scaffolded Practice: Descriptive Statistics</h1>
+<p class="meta">IB DP Mathematics: AI SL &mdash; Probability &amp; Statistics &middot; Syllabus 4.5</p>
+
+<div class="recall-box">
+<h3>🔑 Recall &mdash; Descriptive Statistics</h3>
+<ul>
+  <li><strong>Mode:</strong> The most frequently occurring value.</li>
+  <li><strong>Median:</strong> The middle value when data is ordered. For even $n$, average the two middle values.</li>
+  <li><strong>Mean:</strong> $\displaystyle \bar{x} = \frac{\sum x}{n}$</li>
+  <li><strong>Range:</strong> Maximum value minus minimum value.</li>
+  <li><strong>Standard deviation ($\sigma$):</strong> Use your GDC (1-variable statistics). For IB AI SL, use <strong>population SD</strong>.</li>
+</ul>
+</div>
+
+<div class="example-box">
+<h3>📘 Worked Example</h3>
+<p>Find the descriptive statistics for the following data set:</p>
+<p style="text-align:center;"><strong>14, 17, 20, 17, 15, 11, 14, 20, 20, 29</strong></p>
+
+<p><span class="step-label">Step 1</span> &mdash; Order the data:</p>
+<p style="text-align:center;">11, 14, 14, 15, 17, 17, 20, 20, 20, 29</p>
+
+<p><span class="step-label">Step 2</span> &mdash; Mode:</p>
+<p style="text-align:center;"><strong>20</strong> appears 3 times (most frequent)</p>
+
+<p><span class="step-label">Step 3</span> &mdash; Median ($n = 10$, even):</p>
+<p style="text-align:center;">Middle two values are 17 and 17 &rarr; Median = $\frac{17 + 17}{2} = $ <strong>17</strong></p>
+
+<p><span class="step-label">Step 4</span> &mdash; Mean:</p>
+<p style="text-align:center;">$\bar{x} = \frac{11 + 14 + 14 + 15 + 17 + 17 + 20 + 20 + 20 + 29}{10} = \frac{177}{10} = $ <strong>17.7</strong></p>
+
+<p><span class="step-label">Step 5</span> &mdash; Range:</p>
+<p style="text-align:center;">Range = $29 - 11 = $ <strong>18</strong></p>
+
+<p><span class="step-label">Step 6</span> &mdash; Standard deviation (GDC):</p>
+<p style="text-align:center;">Enter data into STAT &rarr; EDIT, then 1-VAR STATS &rarr; $\sigma_x = $ <strong>5.12</strong> (3 sf)</p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 1 &mdash; Basic</span><span class="q-marks">[4 marks]</span></div>
+  <p>Consider the following data:</p>
+  <p style="text-align:center;"><strong>8, 12, 15, 12, 10, 18, 15, 15, 22</strong></p>
+  <p><strong>(a)</strong> <strong>Find</strong> the mode. <strong>(1 mark)</strong></p>
+  <p><strong>(b)</strong> <strong>Find</strong> the median. <strong>(1 mark)</strong></p>
+  <p><strong>(c)</strong> <strong>Calculate</strong> the mean. <strong>(1 mark)</strong></p>
+  <p><strong>(d)</strong> <strong>Find</strong> the range. <strong>(1 mark)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 2 &mdash; Medium</span><span class="q-marks">[5 marks]</span></div>
+  <p>Given the data:</p>
+  <p style="text-align:center;"><strong>5, 8, 10, 12, 12, 15, 18, 20, 22, 25, 28, 30</strong></p>
+  <p><strong>(a)</strong> <strong>Find</strong> the mode, median, mean, and range. <strong>(2 marks)</strong></p>
+  <p><strong>(b)</strong> <strong>Calculate</strong> the standard deviation using your GDC. <strong>(1 mark)</strong></p>
+  <p><strong>(c)</strong> The value <strong>50</strong> is added to the data set. <strong>Calculate</strong> the new mean, median, and standard deviation. <strong>(2 marks)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 3 &mdash; Exam Style</span><span class="q-marks">[4 marks]</span></div>
+  <p>Consider the following list of 10 data items:</p>
+  <p style="text-align:center;"><strong>16, 19, 21, 19, 18, 12, 16, 21, 21, 32</strong></p>
+  <p>The mean of this data is <strong>19.5</strong>.</p>
+  <p><strong>(a)</strong> <strong>Find</strong> the value of the mode. <strong>(1 mark)</strong></p>
+  <p><strong>(b)</strong> <strong>Find</strong> the value of the median. <strong>(1 mark)</strong></p>
+  <p><strong>(c)</strong> <strong>Calculate</strong> the standard deviation. <strong>(1 mark)</strong></p>
+  <p><strong>(d)</strong> <strong>Find</strong> the range. <strong>(1 mark)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 4 &mdash; Challenging</span><span class="q-marks">[5 marks]</span></div>
+  <p>Two data sets are given:</p>
+  <p style="text-align:center;"><strong>Set A:</strong> 10, 12, 15, 18, 20, 22, 25 &nbsp;&nbsp;&nbsp; <strong>Set B:</strong> 14, 15, 16, 17, 18, 19, 20</p>
+  <p><strong>(a)</strong> For each set, <strong>calculate</strong> the mean, median, standard deviation, and range. <strong>(3 marks)</strong></p>
+  <p><strong>(b)</strong> <strong>Compare</strong> the two data sets, referring to mean, median, standard deviation, and range. <strong>(1 mark)</strong></p>
+  <p><strong>(c)</strong> <strong>Determine</strong> which data set is more consistent and which has the higher central tendency. <strong>(1 mark)</strong></p>
+</div>
+
+</div>
+
+<div id="teacher-view" class="worksheet-body hidden">
+
+<h1>Scaffolded Practice: Descriptive Statistics</h1>
+<p class="meta">IB DP Mathematics: AI SL &mdash; Markscheme</p>
+
+<h2>Markscheme</h2>
+
+<div class="ms-box">
+<h3>Question 1 &mdash; Basic [4 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> Mode = <strong>15</strong> <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> Ordered: 8, 10, 12, 12, 15, 15, 15, 18, 22 &rarr; Median = <strong>15</strong> <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">(c)</span> Mean = $\frac{8+12+15+12+10+18+15+15+22}{9} = \frac{127}{9} = $ <strong>14.1</strong> (3 sf) <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">(d)</span> Range = $22 - 8 = $ <strong>14</strong> <span class="ms-mark">A1</span></div>
+</div>
+
+<div class="ms-box">
+<h3>Question 2 &mdash; Medium [5 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> Mode = <strong>12</strong>; Median = $\frac{15+18}{2} = $ <strong>16.5</strong>; Mean = $\frac{225}{12} = $ <strong>18.75</strong>; Range = $30-5 = $ <strong>25</strong> <span class="ms-mark">A1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> SD = <strong>7.75</strong> (3 sf) <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">(c)</span> New mean = $\frac{275}{13} = $ <strong>21.2</strong>; New median = <strong>18</strong>; New SD = <strong>11.6</strong> <span class="ms-mark">M1A1</span></div>
+</div>
+
+<div class="ms-box">
+<h3>Question 3 &mdash; Exam Style [4 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> Mode = <strong>21</strong> <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> Ordered: 12, 16, 16, 18, 19, 19, 21, 21, 21, 32 &rarr; Median = $\frac{19+19}{2} = $ <strong>19</strong> <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">(c)</span> SD = <strong>4.96</strong> (4.96487&hellip;) <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">(d)</span> Range: 32 and 12 seen <span class="ms-mark">(A1)</span>; Range = $32 - 12 = $ <strong>20</strong> <span class="ms-mark">A1</span></div>
+</div>
+
+<div class="ms-box">
+<h3>Question 4 &mdash; Challenging [5 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> Set A: Mean = 17.4, Median = 18, SD = 5.13, Range = 15; Set B: Mean = 17, Median = 17, SD = 2.16, Range = 6 <span class="ms-mark">M1A1A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> Set A has higher mean and median but also higher SD and range; Set B is more tightly clustered <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">(c)</span> Set B is more consistent (lower SD); Set A has higher central tendency (higher mean/median) <span class="ms-mark">A1</span></div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+function showView(view) {
+  document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('student-view').classList.toggle('hidden', view !== 'student');
+  document.getElementById('teacher-view').classList.toggle('hidden', view !== 'teacher');
+}
+</script>
+
+<footer class="site-footer">
+  <p>IB DP Mathematics: AI SL &mdash; Probability &amp; Statistics</p>
+</footer>
+
+</body>
+</html>

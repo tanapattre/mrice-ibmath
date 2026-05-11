@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scaffolded Practice: Sampling Methods</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    macros: { P: "\\mathbb{P}", E: "\\mathbb{E}", Var: "\\operatorname{Var}", SD: "\\operatorname{SD}" }
+  },
+  startup: { pageReady: () => MathJax.startup.defaultPageReady() }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-container">
+    <a href="../../index.html" class="site-title">IB Math <span>Resources</span></a>
+    <ul class="nav-links">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../dp-ai/index.html">DP AI SL</a></li>
+      <li><a href="../../myp3/index.html">MYP3</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+<div class="toggle-bar no-print">
+  <button class="toggle-btn active" onclick="showView('student')">Student View</button>
+  <button class="toggle-btn" onclick="showView('teacher')">Teacher View</button>
+</div>
+
+<div id="student-view" class="worksheet-body">
+
+<h1>Scaffolded Practice: Sampling Methods</h1>
+<p class="meta">IB DP Mathematics: AI SL &mdash; Probability &amp; Statistics &middot; Syllabus 4.7</p>
+
+<div class="recall-box">
+<h3>🔑 Recall &mdash; Sampling Methods</h3>
+<ul>
+  <li><strong>Stratified sampling:</strong> Population divided into subgroups (strata); sample proportionally from each.</li>
+  <li><strong>Quota sampling:</strong> Non-random; interviewer selects sample to match population proportions.</li>
+  <li><strong>Convenience sampling:</strong> Selecting whoever is easiest to reach (e.g., first volunteers).</li>
+  <li><strong>Systematic sampling:</strong> Selecting every $k$th member from a list.</li>
+  <li><strong>Simple random sampling:</strong> Every member has equal chance; e.g., random number generator.</li>
+</ul>
+</div>
+
+<div class="example-box">
+<h3>📘 Worked Example</h3>
+<p>A school has <strong>850 students</strong> across 4 grade levels:</p>
+<table>
+  <tr><th>Grade</th><td>9</td><td>10</td><td>11</td><td>12</td></tr>
+  <tr><th>Students</th><td>180</td><td>210</td><td>230</td><td>230</td></tr>
+</table>
+<p>A <strong>stratified sample</strong> of 30 students is needed.</p>
+
+<p><span class="step-label">Step 1</span> &mdash; Calculate the proportion for each grade:</p>
+<p style="text-align:center;">Grade 9: $\frac{180}{850} \times 30 = 6.35$ &rarr; <strong>6 students</strong></p>
+<p style="text-align:center;">Grade 10: $\frac{210}{850} \times 30 = 7.41$ &rarr; <strong>7 students</strong></p>
+<p style="text-align:center;">Grade 11: $\frac{230}{850} \times 30 = 8.12$ &rarr; <strong>8 students</strong></p>
+<p style="text-align:center;">Grade 12: $\frac{230}{850} \times 30 = 8.12$ &rarr; <strong>9 students</strong></p>
+<p style="text-align:center; font-size:0.9rem; color:#666;">Check: $6 + 7 + 8 + 9 = 30$ ✓</p>
+
+<p><span class="step-label">Step 2</span> &mdash; Identify the method:</p>
+<p>The principal stands at the cafeteria door and asks the <strong>first 20 students</strong> who walk by to participate.</p>
+<p>This is <strong>quota sampling</strong> (trying to match proportions) and <strong>convenience sampling</strong> (choosing whoever is easiest to reach).</p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 1 &mdash; Basic</span><span class="q-marks">[3 marks]</span></div>
+  <p>A company has <strong>600 employees</strong> in 3 departments:</p>
+  <table>
+    <tr><th>Department</th><td>Sales</td><td>HR</td><td>IT</td></tr>
+    <tr><th>Employees</th><td>240</td><td>120</td><td>240</td></tr>
+  </table>
+  <p>A stratified sample of <strong>24 employees</strong> is needed. <strong>Calculate</strong> the number of employees from each department that should be in the sample.</p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 2 &mdash; Medium</span><span class="q-marks">[4 marks]</span></div>
+  <p>A school has <strong>480 students</strong> across 3 year groups:</p>
+  <table>
+    <tr><th>Year</th><td>10</td><td>11</td><td>12</td></tr>
+    <tr><th>Students</th><td>200</td><td>180</td><td>100</td></tr>
+  </table>
+  <p>A stratified sample of <strong>20 students</strong> is needed.</p>
+  <p><strong>(a)</strong> Calculate the number from each year. <strong>(2 marks)</strong></p>
+  <p><strong>(b)</strong> One year group calculates to less than 1 student. Explain what to do and give your final sample numbers. <strong>(2 marks)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 3 &mdash; Exam Style</span><span class="q-marks">[5 marks]</span></div>
+  <p>A school has <strong>740 students</strong> divided into 5 grade levels. The numbers in each grade are shown below:</p>
+  <table>
+    <tr><th>Grade</th><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td></tr>
+    <tr><th>Students</th><td>120</td><td>140</td><td>160</td><td>180</td><td>140</td></tr>
+  </table>
+  <p>The Principal wants a sample of <strong>25 students</strong> where the proportion from each grade matches the school as closely as possible.</p>
+  <p><strong>(a)</strong> <strong>Calculate</strong> the number of Grade 10 students who should be in the sample. <strong>(3 marks)</strong></p>
+  <p><strong>(b)</strong> The Principal selects students by asking those who took part in a previous survey if they would like to take part again. She takes the first who reply positively, up to the maximum needed. <strong>State</strong> which two sampling methods best describe this. <strong>(2 marks)</strong></p>
+</div>
+
+<div class="question-box">
+  <div class="question-header"><span class="q-label">Question 4 &mdash; Challenging</span><span class="q-marks">[3 marks]</span></div>
+  <p>A researcher uses a <strong>random number generator</strong> to select students from a numbered list of all 500 students in a school.</p>
+  <p><strong>(a)</strong> <strong>Identify</strong> the sampling method used. <strong>(1 mark)</strong></p>
+  <p><strong>(b)</strong> <strong>Compare and contrast</strong> this method with <strong>systematic sampling</strong>. <strong>(2 marks)</strong></p>
+</div>
+
+</div>
+
+<div id="teacher-view" class="worksheet-body hidden">
+
+<h1>Scaffolded Practice: Sampling Methods</h1>
+<p class="meta">IB DP Mathematics: AI SL &mdash; Markscheme</p>
+
+<h2>Markscheme</h2>
+
+<div class="ms-box">
+<h3>Question 1 &mdash; Basic [3 marks]</h3>
+<div class="ms-line"><span class="ms-mark">M1(A1)</span> &mdash; for correct method: $\frac{240}{600} \times 24 = 9.6$</div>
+<div class="ms-line"><span class="ms-ans">Sales:</span> $\frac{240}{600} \times 24 = 9.6$ &rarr; <strong>10 students</strong> <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">HR:</span> $\frac{120}{600} \times 24 = 4.8$ &rarr; <strong>5 students</strong> <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">IT:</span> $\frac{240}{600} \times 24 = 9.6$ &rarr; <strong>9 students</strong> <span class="ms-mark">A1</span></div>
+<div class="ms-line">Check: $10 + 5 + 9 = 24$</div>
+</div>
+
+<div class="ms-box">
+<h3>Question 2 &mdash; Medium [4 marks]</h3>
+<div class="ms-line"><span class="ms-mark">M1</span> &mdash; for correct method for all three years</div>
+<div class="ms-line"><span class="ms-ans">(a)</span> Year 10: $\frac{200}{480} \times 20 = 8.33$ &rarr; <strong>8</strong>; Year 11: $\frac{180}{480} \times 20 = 7.5$ &rarr; <strong>8</strong>; Year 12: $\frac{100}{480} \times 20 = 4.17$ &rarr; <strong>4</strong> <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> Year 12 rounds to 4, but $8 + 8 + 4 = 20$ which is correct. No adjustment needed. <span class="ms-mark">R1</span></div>
+<div class="ms-line">Note: Accept explanation about rounding to nearest whole number or using largest remainder method.</div>
+</div>
+
+<div class="ms-box">
+<h3>Question 3 &mdash; Exam Style [5 marks]</h3>
+<div class="ms-line"><span class="ms-mark">M1(A1)</span> &mdash; for correct proportion method</div>
+<div class="ms-line"><span class="ms-ans">(a)</span> $\frac{180}{740} \times 25 = 6.081$ &rarr; <strong>6 students</strong> <span class="ms-mark">A1</span></div>
+<div class="ms-line">Note: Accept 6 or 7 with valid rounding explanation. <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> <strong>Quota</strong> and <strong>convenience</strong> <span class="ms-mark">A1A1</span></div>
+<div class="ms-line">Note: Award <span class="ms-mark">A1A0</span> for one correct and one incorrect.</div>
+</div>
+
+<div class="ms-box">
+<h3>Question 4 &mdash; Challenging [3 marks]</h3>
+<div class="ms-line"><span class="ms-ans">(a)</span> <strong>Simple random sampling</strong> <span class="ms-mark">A1</span></div>
+<div class="ms-line"><span class="ms-ans">(b)</span> Both give every student equal chance of selection; simple random is truly random while systematic selects at fixed intervals and may miss patterns <span class="ms-mark">A1A1</span></div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+function showView(view) {
+  document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('student-view').classList.toggle('hidden', view !== 'student');
+  document.getElementById('teacher-view').classList.toggle('hidden', view !== 'teacher');
+}
+</script>
+
+<footer class="site-footer">
+  <p>IB DP Mathematics: AI SL &mdash; Probability &amp; Statistics</p>
+</footer>
+
+</body>
+</html>
