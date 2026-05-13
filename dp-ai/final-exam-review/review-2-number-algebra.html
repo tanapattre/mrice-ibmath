@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Exam Review 2 — Number & Algebra</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>
+.exam-header { background: var(--ib-blue); color: white; padding: 1.25rem; border-radius: 6px; margin-bottom: 1.5rem; }
+.exam-header h1 { color: white; margin: 0; }
+.exam-header .meta { color: rgba(255,255,255,0.85); margin: 0.25rem 0 0; }
+.time-box { background: #e8f0fe; border-left: 4px solid var(--ib-blue); padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 4px 4px 0; font-weight: 500; }
+.data-table { width: auto; margin: 1rem auto; border-collapse: collapse; font-family: system-ui, sans-serif; font-size: 14px; }
+.data-table th, .data-table td { border: 1px solid #ccc; padding: 8px 16px; text-align: center; }
+.data-table th { background: #f0f0f0; font-weight: 600; }
+.currency-box { background: #fff8e1; border: 1px solid #c9a227; border-radius: 4px; padding: 0.75rem 1rem; margin: 1rem 0; display: inline-block; font-weight: 500; }
+.marks-right { float: right; color: var(--text-muted); font-size: 0.9em; }
+</style>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  startup: { pageReady: () => MathJax.startup.defaultPageReady() }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-container">
+    <a href="../../index.html" class="site-title">IB Math <span>Resources</span></a>
+    <ul class="nav-links">
+      <li><a href="../../myp3/index.html">MYP3</a></li>
+      <li><a href="../../dp-ai/index.html" class="active">DP AI SL</a></li>
+      <li><a href="../../topics/index.html">Topics</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+<div class="toggle-bar no-print">
+  <button class="toggle-btn active" onclick="showView('student')">Student View</button>
+  <button class="toggle-btn" onclick="showView('teacher')">Teacher View</button>
+</div>
+
+<div id="student-view" class="worksheet-body">
+
+<div class="exam-header">
+  <h1>Final Exam Review 2 — Number & Algebra</h1>
+  <p class="meta">DP AI SL · 30 marks · Suggested time: 40 minutes</p>
+</div>
+
+<div class="time-box">
+  ⏱ Full marks may not be awarded where working is unclear or incomplete. Where appropriate, answers should be given to 3 significant figures unless stated otherwise. Graphic display calculators are permitted.
+</div>
+
+<!-- ============================================================ -->
+<div class="question-box">
+  <div class="question-header">
+    <span class="q-label">Question 1</span>
+    <span class="q-marks">[6 marks]</span>
+  </div>
+  <p>Riku saves 30 000 Japanese yen (JPY) in a bank account which pays a nominal annual interest rate of 3.6% compounded monthly.</p>
+  <p><strong>(a)</strong> <strong>Calculate</strong> the value of Riku's investment after three years. Give your answer correct to two decimal places. <span class="marks-right">[3]</span></p>
+  <p>After the three-year period, Riku withdraws 10 000 JPY from his account to buy a musical instrument. The value of the instrument depreciates at a rate of 12% per year. The value of the instrument will be 3500 JPY after <em>t</em> years.</p>
+  <p><strong>(b)</strong> <strong>Calculate</strong> the value of <em>t</em>. <span class="marks-right">[3]</span></p>
+</div>
+
+<!-- ============================================================ -->
+<div class="question-box">
+  <div class="question-header">
+    <span class="q-label">Question 2</span>
+    <span class="q-marks">[6 marks]</span>
+  </div>
+  <p>In this question, give your answers to the nearest whole number.</p>
+  <p>A student in London orders a gift online from a store in Switzerland. At the checkout page, the student sees the following currency information.</p>
+  <div class="currency-box">1 CHF = 0.92 GBP</div>
+  <p>This means the store would receive payment in Swiss francs (CHF) and convert it to British pounds (GBP) at the stated rate. No commission is charged.</p>
+  <p>The price of the gift is 180 CHF.</p>
+  <p><strong>(a)</strong> <strong>Calculate</strong> the cost of the gift in GBP. <span class="marks-right">[3]</span></p>
+  <p>The student also buys a second gift from a store in Norway priced at 450 Norwegian krone (NOK). The exchange rate is 1 GBP = 13.5 NOK.</p>
+  <p><strong>(b)</strong> <strong>Calculate</strong> the total amount the student pays in GBP for both gifts. <span class="marks-right">[3]</span></p>
+</div>
+
+<!-- ============================================================ -->
+<div class="question-box">
+  <div class="question-header">
+    <span class="q-label">Question 3</span>
+    <span class="q-marks">[6 marks]</span>
+  </div>
+  <p>The loudness of sound, <em>L</em>, measured in decibels (dB), can be modelled as a function of its intensity, <em>I</em>, in watts per square metre (W m<sup>−2</sup>), relative to a reference intensity <em>I</em><sub>0</sub> = 10<sup>−12</sup> W m<sup>−2</sup>, as shown by the following equation.</p>
+  <p style="text-align:center;">$$L = 10\log_{10}\left(\frac{I}{I_0}\right)$$</p>
+  <p>A rock concert has an intensity of 0.05 W m<sup>−2</sup>.</p>
+  <p><strong>(a)</strong> <strong>Calculate</strong> the loudness of the rock concert in decibels. <span class="marks-right">[2]</span></p>
+  <p>A library has a loudness of 35 dB.</p>
+  <p><strong>(b)</strong> <strong>Calculate</strong> the intensity of sound in the library. <span class="marks-right">[2]</span></p>
+  <p><strong>(c)</strong> <strong>Calculate</strong> how many times more intense the sound at the rock concert is compared to the sound in the library. <span class="marks-right">[2]</span></p>
+</div>
+
+<!-- ============================================================ -->
+<div class="question-box">
+  <div class="question-header">
+    <span class="q-label">Question 4</span>
+    <span class="q-marks">[12 marks]</span>
+  </div>
+  <p><strong>Part A — Arithmetic Sequence</strong></p>
+  <p>On her first day of training, a cyclist rides <em>u</em><sub>1</sub> kilometres. The distance she rides increases by the same amount, <em>d</em>, each day. On the seventh day, she rides 18.4 km, and on the twelfth day she rides 28.4 km.</p>
+  <p><strong>(a.i)</strong> <strong>Write down</strong> an equation, in terms of <em>u</em><sub>1</sub> and <em>d</em>, for the distance she rides on the seventh day. <span class="marks-right">[1]</span></p>
+  <p><strong>(a.ii)</strong> <strong>Write down</strong> an equation, in terms of <em>u</em><sub>1</sub> and <em>d</em>, for the distance she rides on the twelfth day. <span class="marks-right">[1]</span></p>
+  <p><strong>(b)</strong> <strong>Calculate</strong> the value of <em>u</em><sub>1</sub> and the value of <em>d</em>. <span class="marks-right">[2]</span></p>
+  <p>The cyclist trains for 25 days.</p>
+  <p><strong>(c)</strong> <strong>Calculate</strong> the total distance, in kilometres, that she rides during the 25 days. <span class="marks-right">[3]</span></p>
+  <p><strong>Part B — Geometric Sequence</strong></p>
+  <p>A new social media post receives 5000 views on its first day. The number of views the post receives decreases by 30% each day.</p>
+  <p><strong>(d.i)</strong> <strong>Calculate</strong> the number of views the post receives on the fourth day. <span class="marks-right">[3]</span></p>
+  <p><strong>(d.ii)</strong> The daily number of views will first be less than 200 on the <em>k</em>th day. <strong>Calculate</strong> the value of <em>k</em>. <span class="marks-right">[3]</span></p>
+  <p><strong>(d.iii)</strong> <strong>Calculate</strong> the total number of views the post receives during the first 7 days. <span class="marks-right">[2]</span></p>
+</div>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- TEACHER VIEW -->
+<!-- ============================================================ -->
+
+<div id="teacher-view" class="worksheet-body hidden">
+
+<div class="exam-header">
+  <h1>Final Exam Review 2 — Number & Algebra</h1>
+  <p class="meta">Markscheme · 30 marks</p>
+</div>
+
+<h2>Question 1 — Compound Interest & Depreciation [6 marks]</h2>
+<div class="ms-box">
+  <div class="ms-line"><span class="ms-ans">(a)</span> $FV = 30000\left(1 + \frac{0.036}{12}\right)^{12 \times 3}$ <span class="ms-mark">(M1)(A1)</span></div>
+  <div class="ms-line">= 30000 × 1.11347... = 33 404.20 JPY <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(b)</span> $10000 \times (0.88)^t = 3500$ <span class="ms-mark">M1</span></div>
+  <div class="ms-line">$(0.88)^t = 0.35$</div>
+  <div class="ms-line">$t = \frac{\ln 0.35}{\ln 0.88} = 8.38...$ <span class="ms-mark">A1</span></div>
+  <div class="ms-line">$t = 8.38$ years (accept 8.39 or 8.4) <span class="ms-mark">A1</span></div>
+</div>
+
+<h2>Question 2 — Currency Exchange [6 marks]</h2>
+<div class="ms-box">
+  <div class="ms-line"><span class="ms-ans">(a)</span> $180 \times 0.92 = 165.60$ GBP <span class="ms-mark">M1A1</span></div>
+  <div class="ms-line">= 166 GBP (nearest whole number) <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(b)</span> Norwegian gift: $450 \div 13.5 = 33.333...$ GBP <span class="ms-mark">M1A1</span></div>
+  <div class="ms-line">Total = $165.60 + 33.33 = 198.93$ → 199 GBP (nearest whole number) <span class="ms-mark">A1</span></div>
+</div>
+
+<h2>Question 3 — Logarithms [6 marks]</h2>
+<div class="ms-box">
+  <div class="ms-line"><span class="ms-ans">(a)</span> $L = 10\log_{10}\left(\frac{0.05}{10^{-12}}\right) = 10\log_{10}(5 \times 10^{10})$ <span class="ms-mark">M1</span></div>
+  <div class="ms-line">$= 10 \times 10.699... = 107$ dB (accept 106.99) <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(b)</span> $35 = 10\log_{10}\left(\frac{I}{10^{-12}}\right)$</div>
+  <div class="ms-line">$3.5 = \log_{10}\left(\frac{I}{10^{-12}}\right)$ <span class="ms-mark">M1</span></div>
+  <div class="ms-line">$I = 10^{-12} \times 10^{3.5} = 3.16 \times 10^{-9}$ W m<sup>−2</sup> (accept 3.162 × 10<sup>−9</sup>) <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(c)</span> $\frac{I_{\text{concert}}}{I_{\text{library}}} = \frac{0.05}{3.16 \times 10^{-9}} = 1.58 \times 10^{7}$ <span class="ms-mark">M1</span></div>
+  <div class="ms-line">≈ 15 800 000 times more intense (accept 1.58 × 10<sup>7</sup>) <span class="ms-mark">A1</span></div>
+</div>
+
+<h2>Question 4 — Sequences & Series [12 marks]</h2>
+<div class="ms-box">
+  <div class="ms-line"><span class="ms-ans">(a.i)</span> $u_1 + 6d = 18.4$ <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(a.ii)</span> $u_1 + 11d = 28.4$ <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(b)</span> Subtracting: $5d = 10 \Rightarrow d = 2$ <span class="ms-mark">M1A1</span></div>
+  <div class="ms-line">$u_1 = 18.4 - 6(2) = 6.4$ km <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(c)</span> $S_{25} = \frac{25}{2}[2(6.4) + 24(2)] = \frac{25}{2}(12.8 + 48) = \frac{25}{2} \times 60.8 = 760$ km <span class="ms-mark">M1A1</span></div>
+  <div class="ms-line">OR $S_{25} = \frac{25}{2}(6.4 + 54.4) = \frac{25}{2} \times 60.8 = 760$ km <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(d.i)</span> $u_4 = 5000 \times (0.7)^3 = 5000 \times 0.343 = 1715$ views <span class="ms-mark">M1A1</span></div>
+  <div class="ms-line">(Accept 1715 or 1715.0) <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(d.ii)</span> $5000 \times (0.7)^{k-1} \lt 200$ <span class="ms-mark">M1</span></div>
+  <div class="ms-line">$(0.7)^{k-1} \lt 0.04$</div>
+  <div class="ms-line">$k - 1 \gt \frac{\ln 0.04}{\ln 0.7} = 9.58...$ <span class="ms-mark">A1</span></div>
+  <div class="ms-line">$k \gt 10.58$, so $k = 11$ <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(d.iii)</span> $S_7 = \frac{5000(1 - 0.7^7)}{1 - 0.7} = \frac{5000(1 - 0.0823543)}{0.3} = \frac{5000 \times 0.9176457}{0.3}$ <span class="ms-mark">M1</span></div>
+  <div class="ms-line">$= 15 294$ views (accept 15 300 or 15 294.1) <span class="ms-mark">A1</span></div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+function showView(view) {
+  document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('student-view').classList.toggle('hidden', view !== 'student');
+  document.getElementById('teacher-view').classList.toggle('hidden', view !== 'teacher');
+}
+</script>
+
+<footer class="site-footer">
+  <p>DP AI SL — Final Exam Review</p>
+</footer>
+
+</body>
+</html>
