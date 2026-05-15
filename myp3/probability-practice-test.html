@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MYP3 Probability Practice Test</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>
+.exam-header { background: var(--ib-blue); color: white; padding: 1.25rem; border-radius: 6px; margin-bottom: 1.5rem; }
+.exam-header h1 { color: white; margin: 0; }
+.exam-header .meta { color: rgba(255,255,255,0.85); margin: 0.25rem 0 0; }
+.time-box { background: #e8f0fe; border-left: 4px solid var(--ib-blue); padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 4px 4px 0; font-weight: 500; }
+.question-box { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; margin: 1.5rem 0; }
+.question-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 2px solid var(--ib-blue); padding-bottom: 0.5rem; }
+.q-label { font-size: 1.1rem; font-weight: 700; color: var(--ib-blue); }
+.q-marks { font-size: 0.95rem; color: var(--text-muted); font-weight: 600; }
+.marks-right { float: right; color: var(--text-muted); font-size: 0.9em; }
+.vocab-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+.vocab-table td, .vocab-table th { border: 1px solid var(--border); padding: 0.75rem; text-align: left; }
+.vocab-table th { background: var(--ib-light-blue); color: var(--ib-blue); font-weight: 600; }
+.blank-line { display: inline-block; border-bottom: 1px solid #333; width: 120px; }
+.blank-line-long { display: inline-block; border-bottom: 1px solid #333; width: 200px; }
+.number-line { margin: 1rem 0; }
+.tree-container { display: flex; justify-content: center; margin: 1.5rem 0; }
+.tree-svg { max-width: 100%; height: auto; }
+.grid-container { display: flex; justify-content: center; margin: 1.5rem 0; }
+.grid-svg { max-width: 100%; height: auto; }
+.diagram-label { text-align: center; font-size: 0.9em; color: var(--text-muted); margin-top: 0.5rem; }
+</style>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-container">
+    <a href="../../index.html" class="site-title">IB Math <span>Resources</span></a>
+    <ul class="nav-links">
+      <li><a href="../../myp3/index.html" class="active">MYP3</a></li>
+      <li><a href="../../dp-ai/index.html">DP AI SL</a></li>
+      <li><a href="../../topics/index.html">Topics</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+<div class="toggle-bar no-print">
+  <button class="toggle-btn active" onclick="showView('student')">Student View</button>
+  <button class="toggle-btn" onclick="showView('teacher')">Teacher View</button>
+</div>
+
+<div id="student-view" class="worksheet-body">
+
+<div class="exam-header">
+  <h1>MYP3 Probability Practice Test</h1>
+  <p class="meta">Probability Foundations · 40 marks · 40 minutes · No calculator needed</p>
+</div>
+
+<div class="time-box">
+  <strong>Instructions:</strong> Answer all questions in the spaces provided. Show your working where required. All answers in Section A should be given without a calculator.
+</div>
+
+<!-- ============================================================ -->
+<div class="question-box">
+  <div class="question-header">
+    <span class="q-label">Section A — Vocabulary & Concepts</span>
+    <span class="q-marks">[15 marks]</span>
+  </div>
+
+  <p><strong>A1 — Sample Space</strong> <span class="marks-right">[3 marks]</span></p>
+  <p>(a) <strong>Write down</strong> what is meant by the term <em>sample space</em>.</p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+  <p style="margin-top:1rem;">(b) A standard six-sided die is rolled. <strong>List</strong> all the outcomes in the sample space.</p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+  <p style="margin-top:1rem;">(c) <strong>State</strong> whether "rolling a 7" is an outcome in this sample space.</p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+
+  <p style="margin-top:1.5rem;"><strong>A2 — Outcome</strong> <span class="marks-right">[3 marks]</span></p>
+  <p>(a) <strong>Write down</strong> what is meant by the term <em>outcome</em>.</p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+  <p style="margin-top:1rem;">(b) A spinner has four equal sections labelled Red, Blue, Green, and Yellow. <strong>Circle</strong> one possible outcome from the following list:</p>
+  <p style="margin-left:2rem;">Red &nbsp;&nbsp;&nbsp; Purple &nbsp;&nbsp;&nbsp; Green &nbsp;&nbsp;&nbsp; 7</p>
+  <p style="margin-top:1rem;">(c) <strong>Give</strong> a real-life example of an outcome from an experiment you could do at school.</p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+
+  <p style="margin-top:1.5rem;"><strong>A3 — Probability Notation</strong> <span class="marks-right">[3 marks]</span></p>
+  <p>(a) <strong>Match</strong> each symbol to its meaning by drawing a line:</p>
+  <table class="vocab-table" style="max-width:400px;">
+    <tr><th>Symbol</th><th>Meaning</th></tr>
+    <tr><td>$P(A)$</td><td>The probability that event A <strong>does not</strong> happen</td></tr>
+    <tr><td>$P(A')$</td><td>The probability that event A <strong>and</strong> event B both happen</td></tr>
+    <tr><td>$P(A \cap B)$</td><td>The probability that <strong>event A</strong> happens</td></tr>
+  </table>
+  <p style="margin-top:1rem;">(b) <strong>Write</strong> "$P(A) = 0.3$" in words.</p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+  <p style="margin-top:1rem;">(c) A bag contains 5 red marbles and 5 blue marbles. A marble is chosen at random. <strong>Calculate</strong> $P(\text{red})$.</p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+
+  <p style="margin-top:1.5rem;"><strong>A4 — Complementary Events</strong> <span class="marks-right">[3 marks]</span></p>
+  <p>(a) <strong>Write down</strong> what is meant by <em>complementary events</em>.</p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+  <p style="margin-top:1rem;">(b) <strong>Write</strong> $P(A')$ in words.</p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+  <p style="margin-top:1rem;">(c) The probability that it rains tomorrow is $0.4$. <strong>Calculate</strong> the probability that it does <strong>not</strong> rain tomorrow.</p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+
+  <p style="margin-top:1.5rem;"><strong>A5 — Mutually Exclusive Events</strong> <span class="marks-right">[2 marks]</span></p>
+  <p>(a) <strong>State</strong> what it means for two events to be <em>mutually exclusive</em>.</p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+  <p style="margin-top:1rem;">(b) <strong>Identify</strong> which of the following pairs of events is mutually exclusive:</p>
+  <p style="margin-left:1rem;">Event 1: "Rolling an even number on a die"</p>
+  <p style="margin-left:1rem;">Event 2: "Rolling a number greater than 4 on a die"</p>
+  <p style="margin-left:1rem;">Event 3: "Rolling a 2 on a die"</p>
+  <p style="margin-left:1rem;"><strong>Write down</strong> the pair that is mutually exclusive:</p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+
+  <p style="margin-top:1.5rem;"><strong>A6 — Independent Events</strong> <span class="marks-right">[2 marks]</span></p>
+  <p>(a) <strong>Write down</strong> what it means for two events to be <em>independent</em>.</p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+  <p style="margin-top:1rem;">(b) A coin is tossed and a die is rolled. <strong>State</strong> whether these two events are independent. <strong>Justify</strong> your answer.</p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+
+  <p style="margin-top:1.5rem;"><strong>A7 — Dependent Events</strong> <span class="marks-right">[2 marks]</span></p>
+  <p>(a) <strong>Write down</strong> what it means for two events to be <em>dependent</em>.</p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+  <p style="margin-top:1rem;">(b) A bag contains 3 red and 3 blue marbles. Two marbles are drawn <strong>without replacement</strong>. <strong>State</strong> whether the events are dependent. <strong>Justify</strong> your answer.</p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+
+  <p style="margin-top:1.5rem;"><strong>A8 — Values of Probability</strong> <span class="marks-right">[2 marks]</span></p>
+  <p>(a) <strong>State</strong> the range of possible values for a probability.</p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+  <p style="margin-top:1rem;">(b) On the number line below, mark the points where:</p>
+  <p style="margin-left:1rem;">(i) an event is <strong>impossible</strong></p>
+  <p style="margin-left:1rem;">(ii) an event is <strong>certain</strong></p>
+  <div class="number-line">
+    <svg viewBox="0 0 400 60" width="400" height="60" class="grid-svg" style="max-width:100%;">
+      <line x1="20" y1="40" x2="380" y2="40" stroke="#333" stroke-width="2"/>
+      <line x1="20" y1="35" x2="20" y2="45" stroke="#333" stroke-width="2"/>
+      <line x1="380" y1="35" x2="380" y2="45" stroke="#333" stroke-width="2"/>
+      <text x="20" y="25" font-size="12" text-anchor="middle">0</text>
+      <text x="380" y="25" font-size="12" text-anchor="middle">1</text>
+      <line x1="200" y1="35" x2="200" y2="45" stroke="#999" stroke-width="1"/>
+      <text x="200" y="25" font-size="12" text-anchor="middle">0.5</text>
+      <line x1="110" y1="35" x2="110" y2="45" stroke="#999" stroke-width="1"/>
+      <text x="110" y="25" font-size="12" text-anchor="middle">0.25</text>
+      <line x1="290" y1="35" x2="290" y2="45" stroke="#999" stroke-width="1"/>
+      <text x="290" y="25" font-size="12" text-anchor="middle">0.75</text>
+    </svg>
+  </div>
+  <p style="margin-top:1rem;">(c) <strong>Write down</strong> the probability of an event that has an equal chance of happening or not happening.</p>
+  <p class="answer-space"><span class="blank-line"></span></p>
+
+  <p style="margin-top:1.5rem;"><strong>A9 — With and Without Replacement</strong> <span class="marks-right">[2 marks]</span></p>
+  <p>(a) <strong>Write down</strong> what "<em>with replacement</em>" means when drawing objects from a bag.</p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+  <p style="margin-top:1rem;">(b) A bag contains 2 red and 2 blue marbles. Two marbles are drawn <strong>with replacement</strong>. <strong>Calculate</strong> $P(\text{first is red AND second is red})$.</p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+
+</div>
+
+<!-- ============================================================ -->
+<div class="question-box">
+  <div class="question-header">
+    <span class="q-label">Section B — Core Skills</span>
+    <span class="q-marks">[25 marks]</span>
+  </div>
+
+  <p><strong>Question 1 — Basic Probability</strong> <span class="marks-right">[4 marks]</span></p>
+  <p>A bag contains 4 red marbles, 3 blue marbles, and 3 green marbles. A marble is chosen at random.</p>
+  <p>(a) <strong>Calculate</strong> the probability that the marble is red. <span class="marks-right">[1]</span></p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+  <p style="margin-top:1rem;">(b) <strong>Calculate</strong> the probability that the marble is <strong>not</strong> green. <span class="marks-right">[2]</span></p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+  <p style="margin-top:1rem;">(c) <strong>State</strong> the probability that the marble is yellow. <span class="marks-right">[1]</span></p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+
+  <p style="margin-top:2rem;"><strong>Question 2 — Complementary Events</strong> <span class="marks-right">[3 marks]</span></p>
+  <p>The probability that a student passes a mathematics test is $0.72$.</p>
+  <p>(a) <strong>Calculate</strong> the probability that the student does <strong>not</strong> pass the test. <span class="marks-right">[1]</span></p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+  <p style="margin-top:1rem;">(b) <strong>Show that</strong> the sum of the probabilities of passing and not passing is equal to 1. <span class="marks-right">[2]</span></p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+
+  <p style="margin-top:2rem;"><strong>Question 3 — Listing Outcomes</strong> <span class="marks-right">[3 marks]</span></p>
+  <p>A coin is tossed and a four-sided die (labelled 1, 2, 3, 4) is rolled.</p>
+  <p>(a) <strong>Write down</strong> all possible outcomes in the sample space. Use the format (coin, die). <span class="marks-right">[2]</span></p>
+  <p class="answer-space" style="min-height:80px;"><span class="blank-line-long"></span></p>
+  <p style="margin-top:1rem;">(b) <strong>Calculate</strong> the total number of outcomes. <span class="marks-right">[1]</span></p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+
+  <p style="margin-top:2rem;"><strong>Question 4 — Two-Dimensional Sample Space</strong> <span class="marks-right">[5 marks]</span></p>
+  <p>Two fair six-sided dice are rolled.</p>
+  <p>(a) <strong>Construct</strong> a 2D sample space diagram showing all possible outcomes. Label your axes. <span class="marks-right">[3]</span></p>
+  <div class="grid-container">
+    <svg viewBox="0 0 280 280" width="280" height="280" class="grid-svg" style="max-width:100%;">
+      <!-- Grid -->
+      <rect x="40" y="40" width="240" height="240" fill="none" stroke="#333" stroke-width="2"/>
+      <!-- Vertical lines -->
+      <line x1="80" y1="40" x2="80" y2="280" stroke="#e0e0e0" stroke-width="1"/>
+      <line x1="120" y1="40" x2="120" y2="280" stroke="#e0e0e0" stroke-width="1"/>
+      <line x1="160" y1="40" x2="160" y2="280" stroke="#e0e0e0" stroke-width="1"/>
+      <line x1="200" y1="40" x2="200" y2="280" stroke="#e0e0e0" stroke-width="1"/>
+      <line x1="240" y1="40" x2="240" y2="280" stroke="#e0e0e0" stroke-width="1"/>
+      <!-- Horizontal lines -->
+      <line x1="40" y1="80" x2="280" y2="80" stroke="#e0e0e0" stroke-width="1"/>
+      <line x1="40" y1="120" x2="280" y2="120" stroke="#e0e0e0" stroke-width="1"/>
+      <line x1="40" y1="160" x2="280" y2="160" stroke="#e0e0e0" stroke-width="1"/>
+      <line x1="40" y1="200" x2="280" y2="200" stroke="#e0e0e0" stroke-width="1"/>
+      <line x1="40" y1="240" x2="280" y2="240" stroke="#e0e0e0" stroke-width="1"/>
+      <!-- Labels -->
+      <text x="20" y="65" font-size="11" text-anchor="middle">1</text>
+      <text x="20" y="105" font-size="11" text-anchor="middle">2</text>
+      <text x="20" y="145" font-size="11" text-anchor="middle">3</text>
+      <text x="20" y="185" font-size="11" text-anchor="middle">4</text>
+      <text x="20" y="225" font-size="11" text-anchor="middle">5</text>
+      <text x="20" y="265" font-size="11" text-anchor="middle">6</text>
+      <text x="15" y="160" font-size="12" text-anchor="middle" transform="rotate(-90,15,160)">Die 1</text>
+      <text x="60" y="295" font-size="11" text-anchor="middle">1</text>
+      <text x="100" y="295" font-size="11" text-anchor="middle">2</text>
+      <text x="140" y="295" font-size="11" text-anchor="middle">3</text>
+      <text x="180" y="295" font-size="11" text-anchor="middle">4</text>
+      <text x="220" y="295" font-size="11" text-anchor="middle">5</text>
+      <text x="260" y="295" font-size="11" text-anchor="middle">6</text>
+      <text x="160" y="310" font-size="12" text-anchor="middle">Die 2</text>
+    </svg>
+  </div>
+  <p style="margin-top:1rem;">(b) <strong>Calculate</strong> the probability that the sum of the two dice is greater than 9. <span class="marks-right">[2]</span></p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+
+  <p style="margin-top:2rem;"><strong>Question 5 — Tree Diagram (One Event)</strong> <span class="marks-right">[4 marks]</span></p>
+  <p>A bag contains 2 red balls and 3 blue balls. A ball is chosen at random, its colour is recorded, and the ball is <strong>replaced</strong>.</p>
+  <p>(a) <strong>Draw</strong> a tree diagram to represent this experiment. Label all branches with their probabilities. <span class="marks-right">[2]</span></p>
+  <div class="answer-space" style="min-height:120px; border: 1px dashed #ccc; padding: 1rem; margin: 1rem 0;">
+    <em>Draw your tree diagram here:</em>
+  </div>
+  <p style="margin-top:1rem;">(b) <strong>Calculate</strong> the probability of choosing a red ball. <span class="marks-right">[1]</span></p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+  <p style="margin-top:1rem;">(c) <strong>Calculate</strong> the probability of choosing a blue ball. <span class="marks-right">[1]</span></p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+
+  <p style="margin-top:2rem;"><strong>Question 6 — Tree Diagram (Two Events)</strong> <span class="marks-right">[6 marks]</span></p>
+  <p>A spinner has three equal sections labelled A, B, and C. The spinner is spun twice.</p>
+  <p>(a) <strong>Draw</strong> a tree diagram with two sets of branches to represent this experiment. Label all branches with their probabilities. <span class="marks-right">[3]</span></p>
+  <div class="answer-space" style="min-height:160px; border: 1px dashed #ccc; padding: 1rem; margin: 1rem 0;">
+    <em>Draw your tree diagram here:</em>
+  </div>
+  <p style="margin-top:1rem;">(b) <strong>Calculate</strong> the probability of getting A on the first spin and B on the second spin. <span class="marks-right">[2]</span></p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+  <p style="margin-top:1rem;">(c) <strong>Determine</strong> the probability of getting the same letter on both spins. <span class="marks-right">[1]</span></p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+
+  <p style="margin-top:2rem;"><strong>Question 7 — Reasoning</strong> <span class="marks-right">[3 marks]</span></p>
+  <p>A teacher wants to design a fair game for two players using a single six-sided die.</p>
+  <p>(a) <strong>Suggest</strong> one rule that would make the game fair. <span class="marks-right">[1]</span></p>
+  <p class="answer-space"><span class="blank-line-long"></span></p>
+  <p style="margin-top:1rem;">(b) <strong>Justify</strong> why your rule makes the game fair, using probability. <span class="marks-right">[2]</span></p>
+  <p class="answer-space" style="min-height:60px;"><span class="blank-line-long"></span></p>
+
+</div>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- TEACHER VIEW -->
+<!-- ============================================================ -->
+
+<div id="teacher-view" class="worksheet-body hidden">
+
+<div class="exam-header">
+  <h1>MYP3 Probability Practice Test</h1>
+  <p class="meta">Markscheme · 40 marks</p>
+</div>
+
+<h2>Section A — Vocabulary & Concepts [15 marks]</h2>
+
+<h3>A1 — Sample Space [3 marks]</h3>
+<div class="ms-box">
+  <div class="ms-line"><span class="ms-ans">(a)</span> The sample space is the set of all possible outcomes of an experiment. <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(b)</span> $\{1, 2, 3, 4, 5, 6\}$ <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(c)</span> No / It is not in the sample space. <span class="ms-mark">A1</span></div>
+</div>
+
+<h3>A2 — Outcome [3 marks]</h3>
+<div class="ms-box">
+  <div class="ms-line"><span class="ms-ans">(a)</span> An outcome is a single possible result of an experiment. <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(b)</span> Red (or Green) <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(c)</span> Any valid real-life example, e.g. "Getting heads when tossing a coin" or "Rolling a 3 on a die." <span class="ms-mark">A1</span></div>
+</div>
+
+<h3>A3 — Probability Notation [3 marks]</h3>
+<div class="ms-box">
+  <div class="ms-line"><span class="ms-ans">(a)</span> $P(A)$ → The probability that event A happens</div>
+  <div class="ms-line">$P(A')$ → The probability that event A does not happen</div>
+  <div class="ms-line">$P(A \cap B)$ → The probability that event A and event B both happen <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(b)</span> "The probability of event A is 0.3" or "There is a 30% chance that event A happens." <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(c)</span> $P(\text{red}) = \frac{5}{10} = \frac{1}{2} = 0.5$ <span class="ms-mark">A1</span></div>
+</div>
+
+<h3>A4 — Complementary Events [3 marks]</h3>
+<div class="ms-box">
+  <div class="ms-line"><span class="ms-ans">(a)</span> Two events are complementary if one must happen and the other cannot; they cover all possibilities. <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(b)</span> "The probability that event A does not happen" or "The probability of the complement of A." <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(c)</span> $P(\text{not rain}) = 1 - 0.4 = 0.6$ <span class="ms-mark">A1</span></div>
+</div>
+
+<h3>A5 — Mutually Exclusive Events [2 marks]</h3>
+<div class="ms-box">
+  <div class="ms-line"><span class="ms-ans">(a)</span> Two events are mutually exclusive if they cannot happen at the same time. <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(b)</span> "Rolling a 2" and "Rolling an even number" — these CAN happen together (2 is even), so not mutually exclusive. <strong>Mutually exclusive pair:</strong> "Rolling a 2" and "Rolling a number greater than 4" (since 2 is not > 4). <span class="ms-mark">A1</span></div>
+</div>
+
+<h3>A6 — Independent Events [2 marks]</h3>
+<div class="ms-box">
+  <div class="ms-line"><span class="ms-ans">(a)</span> Two events are independent if the outcome of one does not affect the outcome of the other. <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(b)</span> Yes, they are independent. The result of the coin toss does not affect the result of the die roll. <span class="ms-mark">A1</span></div>
+</div>
+
+<h3>A7 — Dependent Events [2 marks]</h3>
+<div class="ms-box">
+  <div class="ms-line"><span class="ms-ans">(a)</span> Two events are dependent if the outcome of the first event affects the outcome of the second event. <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(b)</span> Yes, they are dependent. After removing the first marble, there are fewer marbles in the bag, so the probabilities for the second draw change. <span class="ms-mark">A1</span></div>
+</div>
+
+<h3>A8 — Values of Probability [2 marks]</h3>
+<div class="ms-box">
+  <div class="ms-line"><span class="ms-ans">(a)</span> Between 0 and 1 inclusive, or $0 \leq P(A) \leq 1$. <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(b)</span> (i) Mark at 0, (ii) Mark at 1. <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(c)</span> $0.5$ or $\frac{1}{2}$ <span class="ms-mark">A1</span></div>
+</div>
+
+<h3>A9 — With and Without Replacement [2 marks]</h3>
+<div class="ms-box">
+  <div class="ms-line"><span class="ms-ans">(a)</span> "With replacement" means the object is put back after it is drawn, so the probabilities stay the same for the next draw. <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(b)</span> $P(\text{red then red}) = \frac{2}{4} \times \frac{2}{4} = \frac{4}{16} = \frac{1}{4} = 0.25$ <span class="ms-mark">A1</span></div>
+</div>
+
+<h2>Section B — Core Skills [25 marks]</h2>
+
+<h3>Question 1 — Basic Probability [4 marks]</h3>
+<div class="ms-box">
+  <div class="ms-line"><span class="ms-ans">(a)</span> $P(\text{red}) = \frac{4}{10} = \frac{2}{5} = 0.4$ <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(b)</span> $P(\text{not green}) = 1 - \frac{3}{10} = \frac{7}{10} = 0.7$ OR $\frac{4+3}{10} = \frac{7}{10}$ <span class="ms-mark">M1A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(c)</span> $P(\text{yellow}) = 0$ <span class="ms-mark">A1</span></div>
+</div>
+
+<h3>Question 2 — Complementary Events [3 marks]</h3>
+<div class="ms-box">
+  <div class="ms-line"><span class="ms-ans">(a)</span> $P(\text{not pass}) = 1 - 0.72 = 0.28$ <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(b)</span> $0.72 + 0.28 = 1.00$ <strong>AG</strong> <span class="ms-mark">M1A1</span></div>
+</div>
+
+<h3>Question 3 — Listing Outcomes [3 marks]</h3>
+<div class="ms-box">
+  <div class="ms-line"><span class="ms-ans">(a)</span> (H,1), (H,2), (H,3), (H,4), (T,1), (T,2), (T,3), (T,4) <span class="ms-mark">A1A1</span> (deduct 1 mark if any missing or incorrect)</div>
+  <div class="ms-line"><span class="ms-ans">(b)</span> 8 outcomes <span class="ms-mark">A1</span></div>
+</div>
+
+<h3>Question 4 — Two-Dimensional Sample Space [5 marks]</h3>
+<div class="ms-box">
+  <div class="ms-line"><span class="ms-ans">(a)</span> Grid with 6×6 = 36 cells labelled correctly (Die 1 rows, Die 2 columns). <span class="ms-mark">A1A1A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(b)</span> Sums > 9: (4,6), (5,5), (5,6), (6,4), (6,5), (6,6) — 6 outcomes. $P = \frac{6}{36} = \frac{1}{6}$ <span class="ms-mark">M1A1</span></div>
+</div>
+
+<h3>Question 5 — Tree Diagram (One Event) [4 marks]</h3>
+<div class="ms-box">
+  <div class="ms-line"><span class="ms-ans">(a)</span> Tree diagram with two branches: Red ($\frac{2}{5}$) and Blue ($\frac{3}{5}$). Probabilities must sum to 1. <span class="ms-mark">A1A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(b)</span> $P(\text{red}) = \frac{2}{5} = 0.4$ <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(c)</span> $P(\text{blue}) = \frac{3}{5} = 0.6$ <span class="ms-mark">A1</span></div>
+</div>
+
+<h3>Question 6 — Tree Diagram (Two Events) [6 marks]</h3>
+<div class="ms-box">
+  <div class="ms-line"><span class="ms-ans">(a)</span> First set of branches: A ($\frac{1}{3}$), B ($\frac{1}{3}$), C ($\frac{1}{3}$). Second set of branches from each: A ($\frac{1}{3}$), B ($\frac{1}{3}$), C ($\frac{1}{3}$). All nine outcomes shown. <span class="ms-mark">A1A1A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(b)</span> $P(A \text{ then } B) = \frac{1}{3} \times \frac{1}{3} = \frac{1}{9}$ <span class="ms-mark">M1A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(c)</span> $P(\text{same letter}) = P(AA) + P(BB) + P(CC) = \frac{1}{9} + \frac{1}{9} + \frac{1}{9} = \frac{3}{9} = \frac{1}{3}$ <span class="ms-mark">A1</span></div>
+</div>
+
+<h3>Question 7 — Reasoning [3 marks]</h3>
+<div class="ms-box">
+  <div class="ms-line"><span class="ms-ans">(a)</span> Any fair rule, e.g. "Player 1 wins if the die shows 1, 2, or 3. Player 2 wins if it shows 4, 5, or 6." <span class="ms-mark">A1</span></div>
+  <div class="ms-line"><span class="ms-ans">(b)</span> Each player has 3 winning numbers out of 6, so $P(\text{win}) = \frac{3}{6} = \frac{1}{2}$ for each player. Equal probabilities = fair game. <span class="ms-mark">M1A1</span></div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+function showView(view) {
+  document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('student-view').classList.toggle('hidden', view !== 'student');
+  document.getElementById('teacher-view').classList.toggle('hidden', view !== 'teacher');
+}
+</script>
+
+<footer class="site-footer">
+  <p>MYP3 Mathematics — Probability Practice Test</p>
+</footer>
+
+</body>
+</html>
